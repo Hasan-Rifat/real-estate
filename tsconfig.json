@@ -15,6 +15,14 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "app/featuers/properties/propertiesSlice.ts",
+    "app/store.ts",
+    "app/featuers/properties/propertiesApi.ts",
+    "utilities/axios.ts"
+  ],
   "exclude": ["node_modules"]
 }

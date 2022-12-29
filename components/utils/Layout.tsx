@@ -10,9 +10,7 @@ const Layout: React.FC<layoutProps> = ({ children }) => {
   return (
     <>
       <Header />
-      <main className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <section>{children}</section>
-      </main>
+      <main>{children}</main>
       <Footer />
     </>
   );

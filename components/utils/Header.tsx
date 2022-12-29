@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = () => {
       path: "/realtor",
     },
     {
-      id: 4,
+      id: 5,
       text: "Others",
       path: "/others",
     },

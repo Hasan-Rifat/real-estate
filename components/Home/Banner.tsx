@@ -1,34 +1,44 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "../../app/featuers/counter/counterSlice";
-import { RootState } from "../../app/store";
+import bg from "../../images/bg.jpg";
+import AdvanceSearch from "../utils/AdvanceSearch";
 
 type BannerProps = {};
 
 const Banner: React.FC<BannerProps> = () => {
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
   return (
-    <div>
-      <div>Banner</div>
-      <div className="bg-emerald-500 w-full p-8">
-        <button
-          className="btn"
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
-        >
-          Increment
-        </button>
-        <h2>{count}</h2>
-        <button
-          className="btn"
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          Decrement
-        </button>
-      </div>
-    </div>
+    <>
+      <section
+        className="relative"
+        style={{
+          backgroundImage: `url(${bg.src})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="bg-[#002E51] opacity-70 absolute w-full h-full top-0 left-0 -z-1"></div>
+        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <div className="py-[150px] text-center z-10">
+            <div className="grid grid-cols-5">
+              <div className="col-span-1"></div>
+              <div className="col-span-3">
+                <h1 className="text-[42px] font-light text-white mb-3">
+                  Welcome to Real Estate website
+                </h1>
+                <p className="text-white text-base leading-7">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+                  expedita voluptas facilis nesciunt, labore fugit quo
+                  inventore? Ad dignissimos laboriosam, sed harum repellendus
+                  praesentium adipisci eligendi ut ipsam.
+                </p>
+              </div>
+              <div className="col-span-1"></div>
+            </div>
+          </div>
+        </div>
+        <AdvanceSearch />
+      </section>
+    </>
   );
 };
 export default Banner;

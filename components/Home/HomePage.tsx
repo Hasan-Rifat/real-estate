@@ -2,6 +2,7 @@ import React from "react";
 import AdvanceSearch from "../utils/AdvanceSearch";
 import Banner from "./Banner";
 import ExploreCities from "./ExploreCities";
+import FeaturedSlider from "./FeaturedSlider";
 import FinestProperties from "./FinestProperties";
 import MeetOurAgents from "./MeetOurAgents";
 import RealEstateInquiryForm from "./RealEstateInquiryForm";
@@ -14,7 +15,7 @@ const HomePage: React.FC<HomePageProps> = () => {
   return (
     <>
       <Banner />
-      <AdvanceSearch />
+      <FeaturedSlider />
       <Residential />
       <RealEstateInquiryForm />
       <FinestProperties />
