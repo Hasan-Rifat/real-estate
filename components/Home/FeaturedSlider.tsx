@@ -8,6 +8,9 @@ import {
 } from "react-icons/md";
 import { AiFillCar } from "react-icons/ai";
 import { GrAttachment } from "react-icons/gr";
+import { VscOpenPreview } from "react-icons/vsc";
+import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { RxPlusCircled } from "react-icons/rx";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -35,6 +38,7 @@ type FeaturedSliderProps = {};
 const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
   const data = [
     {
+      feature: "for Rent",
       id: 1,
       img: img1,
       title: "Light And Modern Apartment",
@@ -62,6 +66,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
       PropertyStatus: "For Rent",
     },
     {
+      feature: "for sale",
       id: 2,
       img: img2,
       title: "Light And Modern Apartment",
@@ -89,6 +94,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
       PropertyStatus: "For Rent",
     },
     {
+      feature: "for rent",
       id: 3,
       img: img3,
       title: "Light And Modern Apartment",
@@ -116,6 +122,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
       PropertyStatus: "For Rent",
     },
     {
+      feature: "for sale",
       id: 4,
       img: img4,
       title: "Light And Modern Apartment",
@@ -143,6 +150,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
       PropertyStatus: "For Rent",
     },
     {
+      feature: "for rent",
       id: 5,
       img: img5,
       title: "Light And Modern Apartment",
@@ -170,6 +178,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
       PropertyStatus: "For Rent",
     },
     {
+      feature: "for sale",
       id: 6,
       img: img6,
       title: "Light And Modern Apartment",
@@ -197,6 +206,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
       PropertyStatus: "For Rent",
     },
     {
+      feature: "for rent",
       id: 7,
       img: img7,
       title: "Light And Modern Apartment",
@@ -224,6 +234,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
       PropertyStatus: "For Rent",
     },
     {
+      feature: "for sale",
       id: 8,
       img: img8,
       title: "Light And Modern Apartment",
@@ -251,6 +262,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
       PropertyStatus: "For Rent",
     },
     {
+      feature: "for rent",
       id: 9,
       img: img9,
       title: "Light And Modern Apartment",
@@ -278,6 +290,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
       PropertyStatus: "For Rent",
     },
     {
+      feature: "for sale",
       id: 10,
       img: img1,
       title: "Light And Modern Apartment",
@@ -308,10 +321,22 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
   return (
     <section className="py-[150px] ">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <div className="pb-[100px] mx-auto">
+          <h2 className="font-normal text-center text-[35px] leading-[42px] text-[#000]">
+            Discover Our Featured Listings
+          </h2>
+          <p className="text-center text-[16px] leading-[25px] text-accent">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit
+          </p>
+        </div>
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
           breakpoints={{
+            300: {
+              width: 300,
+              slidesPerView: 0.5,
+            },
             // when window width is >= 640px
             640: {
               width: 640,
@@ -323,28 +348,56 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
               slidesPerView: 1.57,
             },
           }}
-          // autoplay={{
-          //   delay: 2500,
-          //   disableOnInteraction: false,
-          // }}
-          // navigation={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          navigation={true}
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination]} //Navigation Autoplay
+          modules={[Pagination, Navigation, Autoplay]} //
           className="mySwiper"
         >
           {data.map((item) => (
             <SwiperSlide key={item.id}>
-              <div className="shadow-xl bg-white rounded-[.25rem]">
-                <div>
+              <div className="shadow-xl bg-white rounded-[.25rem]  ">
+                <div className="relative">
                   <Image
                     className="rounded-t-lg w-full h-full"
                     src={item.img}
                     alt={"slider img"}
                   />
+                  <div className="bg-[#000] rounded-t-lg  opacity-20 absolute w-full h-full bottom-0 left-0 -z-1"></div>
+                  <div className="absolute left-0 top-0 p-[15px] w-full h-full">
+                    <div className="flex justify-between flex-col w-full h-full">
+                      <div>
+                        <div className="flex justify-between ">
+                          <span className="bg-[#77c720] text-white rounded-[2px] py-[3px] px-[5px] text-[10px] leading-[15px] font-medium">
+                            FEATUERD
+                          </span>
+                          <span className="bg-black opacity-[0.6] rounded-[2px] py-[3px] px-[5px] text-white text-[10px] leading-[15px] font-medium uppercase">
+                            {item.feature}
+                          </span>
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex h-full w-full justify-between working text-left text-white">
+                          <div>
+                            <h2>$ {item.price}</h2>
+                            <p>{item.squareFt}</p>
+                          </div>
+                          <div className="flex gap-2">
+                            <VscOpenPreview className="bg-[#3f4041] p-1 w-[30px] rounded-[4px] h-[30px] text-white" />
+                            <MdOutlineFavoriteBorder className="bg-[#3f4041] p-1 w-[30px] rounded-[4px] h-[30px] text-white" />
+                            <RxPlusCircled className="bg-[#3f4041] p-1 w-[30px] rounded-[4px] h-[30px] text-white" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-[20px] border-b-[1px] border-[#dce0e0]">
+                <div className="p-[20px] border-b-[1px] border-[#dce0e0] text-left">
                   <h2 className="font-semibold text-[16px] text-secondary leading-[19px]">
                     {item.title}
                   </h2>
