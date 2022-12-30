@@ -373,10 +373,10 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
                     <div className="flex justify-between flex-col w-full h-full">
                       <div>
                         <div className="flex justify-between ">
-                          <span className="bg-[#77c720] text-white rounded-[2px] py-[3px] px-[5px] text-[10px] leading-[15px] font-medium">
+                          <span className="bg-[#77c720] text-white rounded-[2px] py-[3px] px-[5px] text-[10px] leading-[15px] font-semibold">
                             FEATUERD
                           </span>
-                          <span className="bg-black opacity-[0.6] rounded-[2px] py-[3px] px-[5px] text-white text-[10px] leading-[15px] font-medium uppercase">
+                          <span className="bg-black opacity-[0.6] rounded-[2px] py-[3px] px-[5px] text-white text-[10px] leading-[15px] font-semibold uppercase">
                             {item.feature}
                           </span>
                         </div>
