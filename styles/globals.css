@@ -48,3 +48,20 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+/* banner */
+
+/* @media (min-width: 0px) {
+  .sm\:py-\[50px\] {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+} */
+
+/* search */
+
+/* @media (max-width: 500px) {
+  .sm\:-bottom-\[50\%\] {
+    bottom: -90%;
+  }
+} */

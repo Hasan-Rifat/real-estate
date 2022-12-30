@@ -18,11 +18,11 @@ const Banner: React.FC<BannerProps> = () => {
       >
         <div className="bg-[#002E51] opacity-70 absolute w-full h-full top-0 left-0 -z-1"></div>
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <div className="py-[150px] text-center z-10">
-            <div className="grid grid-cols-5">
+          <div className="pb-[200px] lg:py-[150px] text-center z-10">
+            <div className="grid sm:grid-cols-1 md:grid-cols-5">
               <div className="col-span-1"></div>
-              <div className="col-span-3">
-                <h1 className="text-[42px] font-light text-white mb-3">
+              <div className="sm:col-span-1 md:col-span-3">
+                <h1 className="font-semibold sm:text-[26px] md:text-[42px]  text-white mb-3">
                   Welcome to Real Estate website
                 </h1>
                 <p className="text-white text-base leading-7">

@@ -319,7 +319,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
     },
   ];
   return (
-    <section className="py-[150px] ">
+    <section className="pt-[350px] md:py-[150px] ">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <div className="pb-[100px] mx-auto">
           <h2 className="font-normal text-center text-[35px] leading-[42px] text-[#000]">
@@ -333,9 +333,9 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
           slidesPerView={3}
           spaceBetween={30}
           breakpoints={{
-            300: {
-              width: 300,
-              slidesPerView: 0.5,
+            0: {
+              width: 0,
+              slidesPerView: 0.6,
             },
             // when window width is >= 640px
             640: {

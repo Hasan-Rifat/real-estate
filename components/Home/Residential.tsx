@@ -32,7 +32,7 @@ const Residential: React.FC<ResidentialProps> = () => {
     >
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <div className="max-w-[900px] mx-auto">
-          <div className="grid grid-cols-3 gap-7">
+          <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-7">
             <div className="p-[15px]">
               <div className="mb-[16px]">
                 <h2 className="text-[#000] text-[28px] leading-[33px] mb-[10px]">
@@ -52,8 +52,8 @@ const Residential: React.FC<ResidentialProps> = () => {
               <div
                 key={item.id}
                 className={`p-[15px] relative rounded-md ${
-                  item.id === 1 && "row-span-2"
-                } ${item.id === 1 ? "" : "h-[276px]"}`}
+                  item.id === 1 && "row-span-2 h-[276px] lg:h-full"
+                } ${item.id === 1 ? " " : "h-[276px]"}`}
                 style={{
                   backgroundImage: `url(${item.img.src})`,
                   backgroundRepeat: "no-repeat",
@@ -82,104 +82,7 @@ const Residential: React.FC<ResidentialProps> = () => {
                 </div>
               </div>
             ))}
-
-            {/* <div
-              className="p-[15px]"
-              style={{
-                backgroundImage: `url(${tag3.src})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div className="mb-[16px]">
-                <h2 className="text-[#000] text-[28px] leading-[33px] mb-[10px]">
-                  Residential
-                </h2>
-                <p className="text-[16px] leading-[27px] text-accent mb-[10px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incidi dunt
-                </p>
-                <div className="py-[15px]">
-                  <span className="w-[30%] h-[1px] bg-[#000] inline-block"></span>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="p-[15px]"
-              style={{
-                backgroundImage: `url(${tag4.src})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div className="mb-[16px]">
-                <h2 className="text-[#000] text-[28px] leading-[33px] mb-[10px]">
-                  Residential
-                </h2>
-                <p className="text-[16px] leading-[27px] text-accent mb-[10px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incidi dunt
-                </p>
-                <div className="py-[15px]">
-                  <span className="w-[30%] h-[1px] bg-[#000] inline-block"></span>
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="p-[15px]"
-              style={{
-                backgroundImage: `url(${tag5.src})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div className="mb-[16px]">
-                <h2 className="text-[#000] text-[28px] leading-[33px] mb-[10px]">
-                  Residential
-                </h2>
-                <p className="text-[16px] leading-[27px] text-accent mb-[10px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incidi dunt
-                </p>
-                <div className="py-[15px]">
-                  <span className="w-[30%] h-[1px] bg-[#000] inline-block"></span>
-                </div>
-              </div>
-            </div>
-
-            <div
-              style={{
-                backgroundImage: `url(${tag6.src})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              className={`rounded-[4px]   relative `}
-            >
-              <div className="rounded-[4px] bg-black opacity-[0.3] absolute w-full h-full top-0 left-0 -z-1">
-                <div className={`p-[30px] `}>
-                  <div>
-                    <p className="text-[12px] leading-[25px] text-white">
-                      Properties
-                    </p>
-                    <h2 className="text-[20px] leading-[25px] text-white"></h2>
-                  </div>
-                  <div>
-                    <p>MORE DETAILS</p>
-                    <span>
-                      <HiOutlinePlay />
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-
-            <div className="p-[15px] row-start-3 row-end-3">
+            <div className="p-[15px] md:row-start-3 md:row-end-3 md:col-start-1 md:col-end-1">
               <div className="mb-[16px]">
                 <h2 className="text-[#000] text-[28px] leading-[33px] mb-[10px]">
                   Commercial
