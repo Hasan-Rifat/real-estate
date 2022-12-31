@@ -1,13 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 body {
   font-family: "Roboto", sans-serif;
   color: #000;
   background: #f8f8f8;
 }
+
+/* 
+=========================
+slider css
+=========================
+*/
+
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
@@ -48,20 +55,3 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
-/* banner */
-
-/* @media (min-width: 0px) {
-  .sm\:py-\[50px\] {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-} */
-
-/* search */
-
-/* @media (max-width: 500px) {
-  .sm\:-bottom-\[50\%\] {
-    bottom: -90%;
-  }
-} */

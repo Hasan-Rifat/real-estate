@@ -325,7 +325,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
           <h2 className="font-normal text-center text-[35px] leading-[42px] text-[#000]">
             Discover Our Featured Listings
           </h2>
-          <p className="text-center text-[16px] leading-[25px] text-accent">
+          <p className="mt-3 text-center text-[16px] leading-[25px] text-accent">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit
           </p>
         </div>

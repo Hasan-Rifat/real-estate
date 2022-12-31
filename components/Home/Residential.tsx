@@ -28,7 +28,7 @@ const Residential: React.FC<ResidentialProps> = () => {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "left center",
       }}
-      className="py-[150px] bg-white z-0"
+      className="py-[50px] sm:py-[150px] bg-white z-0"
     >
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <div className="max-w-[900px] mx-auto">
