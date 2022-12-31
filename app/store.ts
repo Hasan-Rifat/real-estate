@@ -3,7 +3,7 @@ import counterReducer from "./featuers/counter/counterSlice";
 import properties from "./featuers/properties/propertiesSlice";
 export const store = configureStore({
   reducer: {
-    properties: properties,
+    properties,
   },
 });
 

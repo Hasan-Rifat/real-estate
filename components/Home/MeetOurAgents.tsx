@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React from "react";
 
 import person1 from "../../images/person 1.jpg";
 import person2 from "../../images/person2.jpg";
@@ -43,6 +42,7 @@ const MeetOurAgents: React.FC<MeetOurAgentsProps> = () => {
       img: person4,
     },
   ];
+
   return (
     <section className="py-[80px]">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
