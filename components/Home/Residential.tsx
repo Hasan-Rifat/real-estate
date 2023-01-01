@@ -27,6 +27,7 @@ const Residential: React.FC<ResidentialProps> = () => {
         backgroundImage: `url(${bg.src})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "left center",
+        backgroundSize: "auto",
       }}
       className="py-[50px] sm:py-[150px] bg-white z-0"
     >

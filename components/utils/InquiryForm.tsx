@@ -135,7 +135,7 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
           <div>
             <Label label={"Information"} />
             <Input
-              className={"w-full"}
+              className={"w-full mb-2"}
               name={"imA"}
               type={"text"}
               placeholder={"I'm a"}
@@ -143,14 +143,14 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
           </div>
           <div className="flex gap-[10px]">
             <Input
-              className={"w-[50%]"}
+              className={"w-[50%] mb-2"}
               name={"firstName"}
               type={"text"}
               placeholder={"First Name"}
             />
 
             <Input
-              className={"w-[50%]"}
+              className={"w-[50%] mb-2"}
               name={"LastName"}
               type={"text"}
               placeholder={"Last Name"}
@@ -158,7 +158,7 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
           </div>
           <div>
             <Input
-              className={"w-full"}
+              className={"w-full mb-2"}
               name={"email"}
               type={"email"}
               placeholder={"Email Address"}
@@ -176,7 +176,7 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
                 placeholder={"zipCode"}
                 type={"text"}
                 name={"zipCode"}
-                className={"w-[50%]"}
+                className={"w-[50%] mb-2"}
               />
             </div>
           </div>
@@ -191,13 +191,13 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
                   placeholder={"Max price"}
                   type={"number"}
                   name={"maxPrice"}
-                  className={"w-[50%]"}
+                  className={"w-[50%] mb-2"}
                 />
                 <Input
                   placeholder={"Minimum size (Sq Ft)"}
                   type={"number"}
                   name={"minimumSize"}
-                  className={"w-[50%]"}
+                  className={"w-[50%] mb-2"}
                 />
               </div>
               <div className="flex gap-[10px]">
@@ -205,13 +205,13 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
                   placeholder={"Number of beds"}
                   type={"number"}
                   name={"numberOfBeds"}
-                  className={"w-[50%]"}
+                  className={"w-[50%] mb-2"}
                 />
                 <Input
                   placeholder={"Number of baths"}
                   type={"number"}
                   name={"numberOfBaths"}
-                  className={"w-[50%]"}
+                  className={"w-[50%] mb-2"}
                 />
               </div>
             </div>
@@ -227,7 +227,7 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
           </div>
           <div className="mt-[30px]">
             <button
-              // type="submite"
+              type="submit"
               className="rounded-[4px]  bg-[#00aeff] hover:bg-[#33beff] text-[16px] text-white px-[30px] py-[15px] w-full"
             >
               submite

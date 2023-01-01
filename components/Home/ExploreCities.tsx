@@ -6,7 +6,7 @@ import img1 from "../../images/Countries/chicago.jpg";
 import img2 from "../../images/Countries/miami-beach.jpg";
 import img3 from "../../images/Countries/los-angeles.jpg";
 import img4 from "../../images/Countries/new-york.jpg";
-
+import bg from "../../images/ExploreCities.jpg";
 type ExploreCitiesProps = {};
 
 const ExploreCities: React.FC<ExploreCitiesProps> = () => {
@@ -18,7 +18,15 @@ const ExploreCities: React.FC<ExploreCitiesProps> = () => {
   ];
 
   return (
-    <section className="py-[100px] bg-white">
+    <section
+      style={{
+        backgroundImage: `url(${bg.src})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center right",
+        backgroundSize: "auto",
+      }}
+      className="py-[100px] bg-white"
+    >
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <div className="max-w-[1280px] mx-auto">
           <div className="grid sm:grid-cols-1 lg:grid-cols-5 items-center gap-7">

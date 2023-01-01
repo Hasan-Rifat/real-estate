@@ -1,6 +1,7 @@
 import React from "react";
 import AdvanceSearch from "../utils/AdvanceSearch";
 import Banner from "./Banner";
+import Clients from "./Clients";
 import ExploreCities from "./ExploreCities";
 import FeaturedSlider from "./FeaturedSlider";
 import FinestProperties from "./FinestProperties";
@@ -22,6 +23,7 @@ const HomePage: React.FC<HomePageProps> = () => {
       <ExploreCities />
       <MeetOurAgents />
       <Testimonials />
+      <Clients />
     </>
   );
 };
