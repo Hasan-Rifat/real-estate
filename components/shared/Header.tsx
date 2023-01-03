@@ -9,6 +9,30 @@ const Header: React.FC<HeaderProps> = () => {
   const [isTrue, setTrue] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const modal = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const headerHandler = () => {
+      if (window.scrollY >= 120) {
+        return setTrue(true);
+      } else {
+        return setTrue(false);
+      }
+    };
+
+    const handler = (e: any) => {
+      if (modal && modal.current && !modal.current.contains(e.target)) {
+        return setOpen(false);
+      }
+    };
+    window.addEventListener("mousedown", handler);
+
+    window.addEventListener("scroll", headerHandler);
+    return () => {
+      window.removeEventListener("scroll", headerHandler);
+      window.removeEventListener("mousedown", handler);
+    };
+  }, [isTrue, open]);
+
   interface navigateInterface {
     id: number;
     text: string;
@@ -165,29 +189,6 @@ const Header: React.FC<HeaderProps> = () => {
       )}
     </div>
   );
-
-  useEffect(() => {
-    const headerHandler = () => {
-      if (window.scrollY >= 120) {
-        return setTrue(true);
-      } else {
-        return setTrue(false);
-      }
-    };
-
-    const handler = (e: any) => {
-      if (modal && modal.current && !modal.current.contains(e.target)) {
-        return setOpen(false);
-      }
-    };
-    window.addEventListener("mousedown", handler);
-
-    window.addEventListener("scroll", headerHandler);
-    return () => {
-      window.removeEventListener("scroll", headerHandler);
-      window.removeEventListener("mousedown", handler);
-    };
-  }, [isTrue, open]);
 
   return (
     <header
