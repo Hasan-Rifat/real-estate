@@ -7,7 +7,7 @@ import PropertiesTitle from "./PropertiesTitle";
 
 const PropertiesPage: React.FC<PropertiesPageProps> = () => {
   return (
-    <section className="">
+    <section className="pb-20">
       <div>
         <PropertiesTitle />
         <PropertiesContent />

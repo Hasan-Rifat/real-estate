@@ -29,7 +29,7 @@ const Testimonials: React.FC<TestimonialsProps> = () => {
             <div className="flex flex-wrap -m-4">
               {/* single item start*/}
               {data.map((item) => (
-                <div className="p-4  md:w-1/3 w-full ">
+                <div key={item.id} className="p-4  md:w-1/3 w-full ">
                   <div className="h-full px-14 py-10 rounded bg-[#edf9ff]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
