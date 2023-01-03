@@ -104,7 +104,7 @@ const Header: React.FC<HeaderProps> = () => {
       {open && (
         <nav
           ref={modal}
-          className="list-none gap-4 absolute left-0 top-[-6px] w-full bg-white p-5"
+          className="list-none absolute left-0 top-[-6px] w-full bg-white p-5 gap-4 flex flex-col"
         >
           {navigate.map((link) => (
             <li>
@@ -136,7 +136,7 @@ const Header: React.FC<HeaderProps> = () => {
           <li>
             <Link href={"/"}>
               <button
-                className={` border-[1px] border-white py-2 
+                className={`mx-5 border-[1px] border-white py-2 
         px-[15px] text-[15px] font-medium leading-[20px] rounded-[5px] text-white bg-black`}
               >
                 Create a Listing
@@ -174,23 +174,20 @@ const Header: React.FC<HeaderProps> = () => {
         return setTrue(false);
       }
     };
-    window.addEventListener("scroll", headerHandler);
-    return () => {
-      window.removeEventListener("scroll", headerHandler);
-    };
-  }, [isTrue]);
 
-  useEffect(() => {
     const handler = (e: any) => {
       if (modal && modal.current && !modal.current.contains(e.target)) {
         return setOpen(false);
       }
     };
     window.addEventListener("mousedown", handler);
+
+    window.addEventListener("scroll", headerHandler);
     return () => {
+      window.removeEventListener("scroll", headerHandler);
       window.removeEventListener("mousedown", handler);
     };
-  }, [open]);
+  }, [isTrue, open]);
 
   return (
     <header
