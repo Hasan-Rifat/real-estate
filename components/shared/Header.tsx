@@ -1,9 +1,11 @@
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
 type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = () => {
+  const [isTrue, setTrue] = useState<boolean>(false);
   interface navigateInterface {
     id: number;
     text: string;
@@ -42,25 +44,35 @@ const Header: React.FC<HeaderProps> = () => {
       path: "/blog",
     },
   ];
+
   const navigation = (
     <>
       {navigate.map((link) => (
         <Link
           key={link.id}
           href={`${link.path}`}
-          className="mx-5 text-accent hover:text-primary font-semibold"
+          className={`mx-5 hover:text-primary font-semibold ${
+            isTrue ? "text-black" : " text-white"
+          }`}
         >
           {link.text}
         </Link>
       ))}
       <div className="flex justify-between items-center gap-5 ">
         <Link
-          className="text-accent hover:text-primary font-semibold"
+          className={`mx-5 hover:text-primary font-semibold ${
+            isTrue ? "text-black" : " text-white"
+          }`}
           href={"tel:+8801768227738"}
         >
           <span>+8801768227738</span>
         </Link>
-        <Link href="/" className="text-accent hover:text-primary font-semibold">
+        <Link
+          href="/"
+          className={`mx-5 hover:text-primary font-semibold ${
+            isTrue ? "text-black" : " text-white"
+          }`}
+        >
           <CgProfile className="text-[24px]" />
         </Link>
         <Link href={"/"}>
@@ -74,13 +86,41 @@ const Header: React.FC<HeaderProps> = () => {
       </div>
     </>
   );
-  return (
-    <header className="text-gray-600 body-font">
-      <div className="max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <Link className="text-primary" href="/">
-          <span className="text-xl">Hasan Rifat</span>
-        </Link>
 
+  const router = useRouter();
+
+  useEffect(() => {
+    const headerHandler = () => {
+      if (window.scrollY >= 120) {
+        return setTrue(true);
+      } else {
+        return setTrue(false);
+      }
+    };
+    window.addEventListener("scroll", headerHandler);
+    return () => {
+      window.removeEventListener("scroll", headerHandler);
+    };
+  }, [isTrue]);
+
+  return (
+    <header
+      className={`z-50 absolute top-0 left-0 w-full  ${
+        isTrue
+          ? "bg-white sticky left-0 top-0 transition ease-in-out  delay-150"
+          : "shadow-[0px_4px_80px_rgba(0,0,0,0.1)]  text-white"
+      }`}
+    >
+      <div className="max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center ">
+        <Link className="text-primary" href="/">
+          <span
+            className={`mx-5 hover:text-primary font-semibold ${
+              isTrue ? "text-black" : " text-white"
+            }`}
+          >
+            Hasan Rifat
+          </span>
+        </Link>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
           {navigation}
         </nav>

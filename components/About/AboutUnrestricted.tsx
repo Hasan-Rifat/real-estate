@@ -12,7 +12,7 @@ const Unrestricted: React.FC<UnrestrictedProps> = () => {
       className={"py-[70px] bg-white"}
     >
       <div>
-        <div className="flex flex-col sm:flex-row">
+        <div className="flex flex-col sm:flex-row sm:gap-8">
           <div className="py-5 w-full">
             <p className="">
               Our membership is composed of residential and commercial brokers,

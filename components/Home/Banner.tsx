@@ -8,7 +8,7 @@ const Banner: React.FC<BannerProps> = () => {
   return (
     <>
       <section
-        className="relative"
+        className="relative -mt-[100px]"
         style={{
           backgroundImage: `url(${bg.src})`,
           backgroundRepeat: "no-repeat",
@@ -18,7 +18,7 @@ const Banner: React.FC<BannerProps> = () => {
       >
         <div className="bg-[#002E51] opacity-70 absolute w-full h-full top-0 left-0 -z-1"></div>
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <div className="pb-[200px] lg:py-[150px] text-center z-10">
+          <div className="pb-[200px] lg:py-[300px] text-center z-10">
             <div className="grid sm:grid-cols-1 md:grid-cols-5">
               <div className="col-span-1"></div>
               <div className="sm:col-span-1 md:col-span-3">

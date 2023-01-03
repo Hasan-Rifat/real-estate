@@ -77,7 +77,7 @@ const AboutOurBlog: React.FC<AboutOurBlogProps> = () => {
       <div className="mt-[40px]">
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
           {data.map((item) => (
-            <div className="shadow-xl bg-white   " key={item.id}>
+            <div className="shadow-xl bg-white" key={item.id}>
               <div className="rounded-[.25rem] ">
                 <div className="relative rounded-[.25rem] p-2">
                   <Image

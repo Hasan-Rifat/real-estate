@@ -60,7 +60,7 @@ const AdvanceSearch: React.FC<AdvanceSearchProps> = () => {
     { id: 18, number: "10,000,000" },
   ];
   return (
-    <div className="absolute top-[50%] md:top-[78%] left-0 right-0 ">
+    <div className="absolute top-[50%] md:top-[85%] left-0 right-0 ">
       <div className="container mx-auto flex flex-wrap p-8 flex-col md:flex-row items-center ">
         <div className="p-[20px] lg:p-[30px] bg-white shadow-2xl rounded-[5px] grid sm:grid-cols-1 md:grid-cols-5 gap-5 mx-auto items-end w-full">
           {/* single item */}

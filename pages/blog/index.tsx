@@ -1,8 +1,13 @@
 import React from "react";
+import BlogPage from "../../components/Blog/BlogPage";
 
 type blogProps = {};
 
 const blog: React.FC<blogProps> = () => {
-  return <div>blog</div>;
+  return (
+    <>
+      <BlogPage />
+    </>
+  );
 };
 export default blog;
