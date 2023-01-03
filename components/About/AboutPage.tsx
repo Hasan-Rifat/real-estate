@@ -1,7 +1,10 @@
 import React from "react";
-import Banner from "./Banner";
-import MeetOurTeam from "./MeetOurTeam";
-import Unrestricted from "./Unrestricted";
+import Testimonials from "../Home/Testimonials";
+import Banner from "./AboutBanner";
+import MeetOurTeam from "./AboutMeetOurTeam";
+import AboutOurBlog from "./AboutOurBlog";
+import AboutServices from "./AboutServices";
+import Unrestricted from "./AboutUnrestricted";
 
 type AboutPageProps = {};
 
@@ -11,6 +14,9 @@ const AboutPage: React.FC<AboutPageProps> = () => {
       <Banner />
       <Unrestricted />
       <MeetOurTeam />
+      <AboutServices />
+      <AboutOurBlog />
+      <Testimonials />
     </>
   );
 };

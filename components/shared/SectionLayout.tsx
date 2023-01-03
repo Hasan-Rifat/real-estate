@@ -20,7 +20,7 @@ const SectionLayout: React.FC<SectionLayoutProps> = ({
   return (
     <section className={` ${className}`}>
       <div className="max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <div>
+        <div className="w-full">
           <div>
             <h1 className={` ${classTitle}`}>{title}</h1>
             <p className={`${pClass}`}>{paragraph}</p>

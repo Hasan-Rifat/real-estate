@@ -311,7 +311,7 @@ const PropertiesPage: React.FC<PropertiesPageProps> = () => {
   return (
     <section className="py-[70px] bg-white">
       <div className="max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {data.map((item) => (
             <div key={item.id}>
               <div className="shadow-xl bg-white rounded-[.25rem]  ">

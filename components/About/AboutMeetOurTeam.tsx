@@ -54,7 +54,7 @@ const MeetOurTeam: React.FC<MeetOurTeamProps> = () => {
   return (
     <SectionLayout
       title={"Meet Our Team"}
-      className={"py-[100px]"}
+      className={"py-[50px] sm:py-[100px]"}
       classTitle={"text-[35px] leading-[42px] text-black"}
       paragraph={"Lorem ipsum dolor sit amet, consectetur adipisicing elit"}
       pClass={"text-[16px] leading-[25px] text-accent"}
