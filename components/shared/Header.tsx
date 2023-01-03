@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = () => {
 
   const navigation = (
     <div>
-      <nav className="list-none sm:flex sm:items-center gap-4">
+      <nav className="list-none flex items-center gap-2">
         {navigate.map((link) => (
           <li>
             <Link
@@ -197,7 +197,8 @@ const Header: React.FC<HeaderProps> = () => {
           : "shadow-[0px_4px_80px_rgba(0,0,0,0.1)]  text-white"
       } `}
     >
-      <div className="container mx-auto flex flex-wrap flex-col md:flex-row items-center ">
+      {/* me */}
+      <div className="container p-4 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
         <div className=" flex items-center justify-between w-full">
           <div>
             <Link className="text-primary w-full" href="/">
