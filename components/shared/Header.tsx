@@ -23,18 +23,23 @@ const Header: React.FC<HeaderProps> = () => {
     },
     {
       id: 3,
-      text: "Property",
-      path: "/property",
+      text: "About",
+      path: "/about",
     },
     {
       id: 4,
-      text: "Realtor",
-      path: "/realtor",
+      text: "Inquiry Form",
+      path: "/inquiry-form",
     },
     {
       id: 5,
-      text: "Others",
-      path: "/others",
+      text: "Contact",
+      path: "/contact",
+    },
+    {
+      id: 6,
+      text: "Blog",
+      path: "/blog",
     },
   ];
   const navigation = (
@@ -71,10 +76,7 @@ const Header: React.FC<HeaderProps> = () => {
   );
   return (
     <header className="text-gray-600 body-font">
-      <div
-        className="container mx-auto flex flex-wrap p-5 
-  flex-col md:flex-row items-center"
-      >
+      <div className="max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link className="text-primary" href="/">
           <span className="text-xl">Hasan Rifat</span>
         </Link>

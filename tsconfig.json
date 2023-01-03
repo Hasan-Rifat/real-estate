@@ -22,7 +22,8 @@
     "app/featuers/properties/propertiesSlice.ts",
     "app/store.ts",
     "app/featuers/properties/propertiesApi.ts",
-    "utilities/axios.ts"
+    "utilities/axios.ts",
+    "utilities/dbConnent.ts"
   ],
   "exclude": ["node_modules"]
 }

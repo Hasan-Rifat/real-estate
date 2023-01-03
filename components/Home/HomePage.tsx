@@ -1,5 +1,5 @@
 import React from "react";
-import AdvanceSearch from "../utils/AdvanceSearch";
+import AdvanceSearch from "../shared/AdvanceSearch";
 import Banner from "./Banner";
 import Clients from "./Clients";
 import ExploreCities from "./ExploreCities";

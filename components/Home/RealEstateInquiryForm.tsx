@@ -1,5 +1,5 @@
 import React from "react";
-import InquiryForm from "../utils/InquiryForm";
+import InquiryForm from "../shared/InquiryForm";
 import bg from "../../images/inquiryForm.jpg";
 
 type RealEstateInquiryFormProps = {};

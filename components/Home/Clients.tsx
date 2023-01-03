@@ -19,7 +19,7 @@ const Clients: React.FC<ClientsProps> = () => {
   ];
   return (
     <section className="bg-white py-[15px] border-[1px] border-[#ECECEC]">
-      <div className="max-w-[1140px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <div className="max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-[100px]">
           {data.map((item) => (
             <div key={item.id}>

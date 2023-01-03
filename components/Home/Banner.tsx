@@ -1,6 +1,6 @@
 import React from "react";
 import bg from "../../images/bg.jpg";
-import AdvanceSearch from "../utils/AdvanceSearch";
+import AdvanceSearch from "../shared/AdvanceSearch";
 
 type BannerProps = {};
 
