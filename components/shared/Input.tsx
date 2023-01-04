@@ -18,7 +18,7 @@ const Input: React.FC<InputProps> = ({
       name={name}
       type={type}
       placeholder={placeholder}
-      className={`px-[16px] py-2 border-[#dce0e0] border-[1px] rounded-[2px]  ${className}`}
+      className={`px-[16px] py-2 border-[#dce0e0] border-[1px] rounded-[2px]  ${className} focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none`}
     />
   );
 };

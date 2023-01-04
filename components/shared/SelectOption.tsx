@@ -1,25 +1,30 @@
 import React from "react";
+import Others from "../../pages/others";
 
 type SelectOptionProps = {
   selectData: {
     id: number;
     value: string;
   }[];
+  onChange: any;
   className?: string;
 };
 
 const SelectOption: React.FC<SelectOptionProps> = ({
-  selectData: selactData,
+  selectData,
   className,
+  onChange,
 }) => {
   return (
     <select
-      className={`px-[16px] py-[14px] border-[#dce0e0] border-[1px] rounded-[2px] mb-2 ${className}`}
+      onChange={(e) => onChange(e.target.value)}
+      className={`px-[16px] py-[14px] border-[#dce0e0] border-[1px] rounded-[2px] mb-2 ${className} focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none`}
     >
-      {selactData.map((item) => (
+      {selectData.map((item) => (
         <option
-          className={`px-[16px]  border-[#dce0e0] border-[1px] rounded-[2px] mb-2 ${className}`}
+          className={`p-5 h-[60px] block border-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none border-[#dce0e0]  active:outline-none rounded-[2px] mb-2 ${className}`}
           key={item.id}
+          value={item.value}
         >
           {item.value}
         </option>

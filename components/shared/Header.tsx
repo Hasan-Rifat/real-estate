@@ -100,7 +100,7 @@ const Header: React.FC<HeaderProps> = () => {
         </li>
         <li>
           <Link
-            href="/"
+            href="/person"
             className={`mx-5 hover:text-primary font-semibold ${
               isTrue ? "text-black" : " text-white"
             }`}

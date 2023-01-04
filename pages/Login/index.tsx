@@ -1,8 +1,13 @@
 import React from "react";
+import LoginForm from "../../components/Login/LoginForm";
 
 type LoginProps = {};
 
 const Login: React.FC<LoginProps> = () => {
-  return <div>Login</div>;
+  return (
+    <>
+      <LoginForm />
+    </>
+  );
 };
 export default Login;
