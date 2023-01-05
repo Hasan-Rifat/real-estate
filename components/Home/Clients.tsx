@@ -20,6 +20,13 @@ const Clients: React.FC<ClientsProps> = () => {
   return (
     <section className="bg-white py-[15px] border-[1px] border-[#ECECEC]">
       <div className="max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <div className="z-10 w-full">
+          <div className="">
+            <h2 className="font-normal text-[35px] leading-[42px] text-white z-10 text-center w-full mt-8">
+              Our Sponsors
+            </h2>
+          </div>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-[100px]">
           {data.map((item) => (
             <div key={item.id}>

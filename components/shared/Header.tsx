@@ -151,10 +151,10 @@ const Header: React.FC<HeaderProps> = () => {
           </li>
           <li>
             <Link
-              href="/"
+              href="/person"
               className={`mx-5 hover:text-primary font-semibold text-black`}
             >
-              <CgProfile className="w-[38px] mx-5" />
+              <CgProfile className="text-[20px] mx-5" />
             </Link>
           </li>
           <li>
