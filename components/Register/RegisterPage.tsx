@@ -140,7 +140,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
                     </button>
 
                     <button className="mt-[15px] bg-[#fbc21c] text-black font-semibold text-sm leading-snug uppercase rounded shadow-md hover:text-white hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  border-0 w-[20%] py-[10px]">
-                      <Link href={"/login"}> Login </Link>
+                      <Link href="/login">Login</Link>
                     </button>
                   </div>
                 </form>

@@ -40,20 +40,6 @@ const person: React.FC<personProps> = () => {
             </div>
           </div>
         </div>
-        {/* <div className="max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <div className="flex gap-4 w-full justify-center">
-            <button
-              type={"submit"}
-              className="mt-[15px] bg-blue-600 text-white font-semibold text-sm leading-snug uppercase rounded shadow-md hover:text-black border-0 hover:bg-[#fbc21c] hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-[20%] py-[10px]"
-            >
-              <Link href={"/login"}> Login </Link>
-            </button>
-
-            <button className="mt-[15px] bg-[#fbc21c] text-black font-semibold text-sm leading-snug uppercase rounded shadow-md hover:text-white hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  border-0 w-[20%] py-[10px]">
-              <Link href={"/register"}> Create a account </Link>
-            </button>
-          </div>
-        </div> */}
       </div>
     </section>
   );

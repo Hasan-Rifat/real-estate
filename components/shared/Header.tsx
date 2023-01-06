@@ -75,25 +75,25 @@ const Header: React.FC<HeaderProps> = () => {
   const navigation = (
     <div>
       <nav className="list-none flex items-center gap-2">
-        {navigate.map((link) => (
+        {navigate.map((item) => (
           <li>
             <Link
-              key={link.id}
-              href={`${link.path}`}
-              className={`mx-5 hover:text-primary font-semibold ${
+              key={item.id}
+              href={item.path}
+              className={`  hover:text-primary font-semibold p-4 ${
                 isTrue ? "text-black" : " text-white"
               }`}
             >
-              {link.text}
+              {item.text}
             </Link>
           </li>
         ))}
         <li>
           <Link
-            className={`mx-5 hover:text-primary font-semibold ${
+            className={`  hover:text-primary p-4 font-semibold ${
               isTrue ? "text-black" : " text-white"
             }`}
-            href={"tel:+8801768227738"}
+            href="tel:+8801768227738"
           >
             <span>+8801768227738</span>
           </Link>
@@ -101,7 +101,7 @@ const Header: React.FC<HeaderProps> = () => {
         <li>
           <Link
             href="/person"
-            className={`mx-5 hover:text-primary font-semibold ${
+            className={`  hover:text-primary font-semibold  p-4 ${
               isTrue ? "text-black" : " text-white"
             }`}
           >
@@ -109,16 +109,16 @@ const Header: React.FC<HeaderProps> = () => {
           </Link>
         </li>
         <li>
-          <Link href={"/"}>
-            <button
-              className={` border-[1px] border-white py-2 
+          <button
+            className={` border-[1px] border-white py-2 
             px-[15px] text-[15px] font-medium leading-[20px] rounded-[5px] ${
               isTrue ? "text-white bg-secondary" : "text-black bg-white"
             }`}
-            >
+          >
+            <Link className=" p-4" href={"/"}>
               Create a Listing
-            </button>
-          </Link>
+            </Link>
+          </button>
         </li>
       </nav>
     </div>
@@ -130,21 +130,21 @@ const Header: React.FC<HeaderProps> = () => {
           ref={modal}
           className="list-none absolute left-0 top-[-6px] w-full bg-white p-5 gap-4 flex flex-col"
         >
-          {navigate.map((link) => (
+          {navigate.map((item) => (
             <li>
               <Link
-                key={link.id}
-                href={`${link.path}`}
-                className={`mx-5 hover:text-primary font-semibold text-black `}
+                key={item.id}
+                href={item.path}
+                className={`   p-4 hover:text-primary font-semibold text-black `}
               >
-                {link.text}
+                {item.text}
               </Link>
             </li>
           ))}
           <li>
             <Link
-              className={`mx-5 hover:text-primary font-semibold text-black`}
-              href={"tel:+8801768227738"}
+              className={`   p-4 hover:text-primary font-semibold text-black`}
+              href="tel:+8801768227738"
             >
               <span>+8801768227738</span>
             </Link>
@@ -152,20 +152,18 @@ const Header: React.FC<HeaderProps> = () => {
           <li>
             <Link
               href="/person"
-              className={`mx-5 hover:text-primary font-semibold text-black`}
+              className={` p-4  hover:text-primary font-semibold text-black`}
             >
-              <CgProfile className="text-[20px] mx-5" />
+              <CgProfile className="text-[20px] w-[36px]  mx-5 " />
             </Link>
           </li>
           <li>
-            <Link href={"/"}>
-              <button
-                className={`mx-5 border-[1px] border-white py-2 
+            <button
+              className={` mx-5 p-4 border-[1px] border-white py-2 
         px-[15px] text-[15px] font-medium leading-[20px] rounded-[5px] text-white bg-black`}
-              >
-                Create a Listing
-              </button>
-            </Link>
+            >
+              <Link href="/">Create a Listing</Link>
+            </button>
           </li>
           <button
             className="absolute right-[20px] top-[20px] "
@@ -198,13 +196,12 @@ const Header: React.FC<HeaderProps> = () => {
           : "shadow-[0px_4px_80px_rgba(0,0,0,0.1)]  text-white"
       } `}
     >
-      {/* me */}
       <div className="container p-4 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
         <div className=" flex items-center justify-between w-full">
           <div>
             <Link className="text-primary w-full" href="/">
               <p
-                className={`mx-5 hover:text-primary font-semibold w-full ${
+                className={`w-full mx-5 p-4 hover:text-primary font-semibold ${
                   isTrue ? "text-black" : " text-white"
                 }`}
               >

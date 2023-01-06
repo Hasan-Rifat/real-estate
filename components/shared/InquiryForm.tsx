@@ -129,9 +129,12 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
           {/* Inquiry Type */}
           <div className="">
             <Label label={"Inquiry Type"} />
-            <SelectOption selectData={inquiryTypeData} className={"w-full"} />
+            <SelectOption
+              onChange={""}
+              selectData={inquiryTypeData}
+              className={"w-full"}
+            />
           </div>
-          {/* Information */}
           <div>
             <Label label={"Information"} />
             <Input
@@ -169,6 +172,7 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
             <Label label={"Location"} />
             <div className="flex gap-[10px]">
               <SelectOption
+                onChange={""}
                 selectData={inquiryTypeData}
                 className={"w-[50%]"}
               />
@@ -184,7 +188,11 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
           {/* property */}
           <div className="mb-4">
             <Label label={"Property"} />
-            <SelectOption selectData={propertyData} className={"w-full"} />
+            <SelectOption
+              onChange={""}
+              selectData={propertyData}
+              className={"w-full"}
+            />
             <div>
               <div className="flex gap-[10px]">
                 <Input
