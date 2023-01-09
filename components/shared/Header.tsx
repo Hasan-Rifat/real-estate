@@ -196,7 +196,7 @@ const Header: React.FC<HeaderProps> = () => {
           : "shadow-[0px_4px_80px_rgba(0,0,0,0.1)]  text-white"
       } `}
     >
-      <div className="container p-4 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
+      <div className="max-w-[1300px] p-4 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
         <div className=" flex items-center justify-between w-full">
           <div>
             <Link className="text-primary w-full" href="/">

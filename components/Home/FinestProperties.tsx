@@ -198,7 +198,7 @@ const FinestProperties: React.FC<FinestPropertiesProps> = () => {
   ];
   return (
     <section className="py-[70px]">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <div className="max-w-[1280px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <div className="pb-[100px] mx-auto">
           <h2 className="font-normal text-center text-[35px] leading-[42px] text-[#000]">
             Discover Our Featured Listings

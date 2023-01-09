@@ -22,7 +22,7 @@ const Clients: React.FC<ClientsProps> = () => {
       <div className="max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <div className="z-10 w-full">
           <div className="py-5">
-            <h2 className="font-normal text-[35px] leading-[42px] text-black z-10 text-center w-full mt-8">
+            <h2 className="text-[35px] leading-[42px] text-black z-10 text-center w-full mb-[40px] font-semibold">
               Our Sponsors
             </h2>
           </div>

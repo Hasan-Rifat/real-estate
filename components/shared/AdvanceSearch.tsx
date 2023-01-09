@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 type AdvanceSearchProps = {};
 
 const AdvanceSearch: React.FC<AdvanceSearchProps> = () => {
-  const selectOne = [
+  const [propertyData, SetPropertyData] = useState("");
+  const [locationData, SetLocationData] = useState("");
+  const [propertySizeData, SetPropertySizeData] = useState("");
+  const [budgetTypeData, SetBudgetTypeData] = useState("");
+
+  const propertyType = [
     { id: 0, tag: "Properly Type " },
     { id: 1, tag: "Commercial " },
     { id: 2, tag: "-Office" },
@@ -16,14 +21,16 @@ const AdvanceSearch: React.FC<AdvanceSearchProps> = () => {
     { id: 9, tag: "-Studio" },
     { id: 10, tag: "-Villa" },
   ];
-  const selectTwo = [
+
+  const locationType = [
     { id: 1, tag: "All Cities" },
     { id: 2, tag: "Chicago Illinois" },
     { id: 3, tag: "Los Angeles California" },
     { id: 4, tag: "Miami Florida" },
     { id: 5, tag: "New York New York" },
   ];
-  const selectThree = [
+
+  const propertySize = [
     { id: 0, number: "Bedrooms" },
     { id: 1, number: 1 },
     { id: 2, number: 2 },
@@ -38,7 +45,7 @@ const AdvanceSearch: React.FC<AdvanceSearchProps> = () => {
     { id: 11, number: "any" },
   ];
 
-  const selectFours = [
+  const budgetType = [
     { id: 0, number: "Max. Price" },
     { id: 1, number: "Any" },
     { id: 2, number: "5,000" },
@@ -59,17 +66,21 @@ const AdvanceSearch: React.FC<AdvanceSearchProps> = () => {
     { id: 17, number: "5,000,000" },
     { id: 18, number: "10,000,000" },
   ];
+
   return (
     <div className="absolute top-[50%] md:top-[85%] left-0 right-0 ">
-      <div className="container mx-auto flex flex-wrap p-8 flex-col md:flex-row items-center ">
+      <div className="max-w-[1280px] mx-auto flex flex-wrap p-8 flex-col md:flex-row items-center ">
         <div className="p-[20px] lg:p-[30px] bg-white shadow-2xl rounded-[5px] grid sm:grid-cols-1 md:grid-cols-5 gap-5 mx-auto items-end w-full">
           {/* single item */}
           <div className="flex flex-col">
             <label className="font-semibold text-[#222222]" htmlFor="">
               Looking for
             </label>
-            <select className="mt-3 border-[#dce0e0] border-[1px] p-[10px] rounded-[5px]">
-              {selectOne.map((item) => (
+            <select
+              onChange={(e) => SetPropertyData(e.target.value)}
+              className="mt-3 border-[#dce0e0] border-[1px] p-[10px] rounded-[5px]"
+            >
+              {propertyType.map((item) => (
                 <option className="p-[10px] " key={item.id}>
                   {item.tag}
                 </option>
@@ -81,8 +92,11 @@ const AdvanceSearch: React.FC<AdvanceSearchProps> = () => {
             <label className="font-semibold text-[#222222]" htmlFor="">
               Location
             </label>
-            <select className="mt-3 border-[#dce0e0] border-[1px] p-[10px] rounded-[5px]">
-              {selectTwo.map((item) => (
+            <select
+              onChange={(e) => SetLocationData(e.target.value)}
+              className="mt-3 border-[#dce0e0] border-[1px] p-[10px] rounded-[5px]"
+            >
+              {locationType.map((item) => (
                 <option className="p-[10px] " key={item.id}>
                   {item.tag}
                 </option>
@@ -94,8 +108,11 @@ const AdvanceSearch: React.FC<AdvanceSearchProps> = () => {
             <label className="font-semibold text-[#222222]" htmlFor="">
               PROPERTY SIZE
             </label>
-            <select className="mt-3 border-[#dce0e0] border-[1px] p-[10px] rounded-[5px]">
-              {selectThree.map((item) => (
+            <select
+              onChange={(e) => SetPropertySizeData(e.target.value)}
+              className="mt-3 border-[#dce0e0] border-[1px] p-[10px] rounded-[5px]"
+            >
+              {propertySize.map((item) => (
                 <option className="p-[10px] " key={item.id}>
                   {item.number}
                 </option>
@@ -107,8 +124,11 @@ const AdvanceSearch: React.FC<AdvanceSearchProps> = () => {
             <label className="font-semibold text-[#222222]" htmlFor="">
               YOUR BUDGET
             </label>
-            <select className="mt-3 border-[#dce0e0] border-[1px] p-[10px] rounded-[5px]">
-              {selectFours.map((item) => (
+            <select
+              onChange={(e) => SetBudgetTypeData(e.target.value)}
+              className="mt-3 border-[#dce0e0] border-[1px] p-[10px] rounded-[5px]"
+            >
+              {budgetType.map((item) => (
                 <option className="p-[10px] " key={item.id}>
                   {item.number}
                 </option>
