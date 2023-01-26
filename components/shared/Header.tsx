@@ -76,9 +76,8 @@ const Header: React.FC<HeaderProps> = () => {
     <div>
       <nav className="list-none flex items-center gap-2">
         {navigate.map((item) => (
-          <li>
+          <li key={item.id}>
             <Link
-              key={item.id}
               href={item.path}
               className={`  hover:text-primary font-semibold p-4 ${
                 isTrue ? "text-black" : " text-white"
@@ -131,9 +130,8 @@ const Header: React.FC<HeaderProps> = () => {
           className="list-none absolute left-0 top-[-6px] w-full bg-white p-5 gap-4 flex flex-col"
         >
           {navigate.map((item) => (
-            <li>
+            <li key={item.id}>
               <Link
-                key={item.id}
                 href={item.path}
                 className={`   p-4 hover:text-primary font-semibold text-black `}
               >
