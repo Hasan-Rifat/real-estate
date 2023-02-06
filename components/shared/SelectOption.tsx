@@ -1,12 +1,11 @@
 import React from "react";
-import Others from "../../pages/others";
 
 type SelectOptionProps = {
   selectData: {
     id: number;
     value: string;
   }[];
-  onChange: any;
+  onChange?: any;
   className?: string;
 };
 
