@@ -77,12 +77,13 @@ const Header: React.FC<HeaderProps> = () => {
       <nav className="list-none flex items-center gap-2">
         {navigate.map((item) => (
           <Link
+            key={item.id}
             href={item.path}
             className={`  hover:text-primary font-semibold p-4 ${
               isTrue ? "text-black" : " text-white"
             }`}
           >
-            <li key={item.id}>{item.text}</li>
+            <li>{item.text}</li>
           </Link>
         ))}
 
@@ -131,8 +132,8 @@ const Header: React.FC<HeaderProps> = () => {
           className="list-none absolute left-0 top-[-6px] w-full bg-white p-5 gap-4 flex flex-col"
         >
           {navigate.map((item) => (
-            <Link href={item.path}>
-              <li key={item.id}>
+            <Link key={item.id} href={item.path}>
+              <li>
                 className=
                 {`   p-4 hover:text-primary font-semibold text-black `}
                 {item.text}
@@ -163,7 +164,7 @@ const Header: React.FC<HeaderProps> = () => {
         px-[15px] text-[15px] font-medium leading-[20px] rounded-[5px] text-white bg-black`}
           >
             <li>
-              <Link href="/">Create a Listing</Link>{" "}
+              <Link href="/">Create a Listing</Link>
             </li>
           </button>
 
