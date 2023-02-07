@@ -7,11 +7,19 @@ type InquiryFormProps = {};
 
 const InquiryForm: React.FC<InquiryFormProps> = () => {
   const [inquiryType, setInquiryType] = useState("");
-  const [allInformation, setAllInformation] = useState("");
   const [location, setLocation] = useState("");
   const [property, setProperty] = useState("");
-  const [gdpr, setGdpr] = useState(false);
   const [agreement, setAgreement] = useState(false);
+  const [iam, setIam] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [minimumSize, setMinimumSize] = useState("");
+  const [numberOfBeds, setNumberOfBeds] = useState("");
+  const [numberOfBaths, setNumberOfBaths] = useState("");
+
   const [inquiryTypeData] = useState([
     {
       id: 1,
@@ -111,9 +119,24 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
     },
   ]);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     // perform form submission logic here
+    const data = {
+      inquiryType,
+      location,
+      property,
+      agreement,
+      iam,
+      firstName,
+      lastName,
+      email,
+      zipCode,
+      maxPrice,
+      minimumSize,
+      numberOfBeds,
+      numberOfBaths,
+    };
   };
 
   return (
@@ -125,13 +148,13 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
         <p className="text-[18px] leading-[27px] text-black font-light mb-5">
           Design custom lead capture forms that integrate with the Houzez CRM
         </p>
-        <form className="">
+        <form className="" onSubmit={handleSubmit}>
           {/* Inquiry Type */}
           <div className="">
             <Label label={"Inquiry Type"} />
             <SelectOption
-              onChange={""}
               selectData={inquiryTypeData}
+              fn={setInquiryType}
               className={"w-full"}
             />
           </div>
@@ -142,10 +165,12 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
               name={"imA"}
               type={"text"}
               placeholder={"I'm a"}
+              fn={setIam}
             />
           </div>
           <div className="flex gap-[10px]">
             <Input
+              fn={setFirstName}
               className={"w-[50%] mb-2"}
               name={"firstName"}
               type={"text"}
@@ -157,6 +182,7 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
               name={"LastName"}
               type={"text"}
               placeholder={"Last Name"}
+              fn={setLastName}
             />
           </div>
           <div>
@@ -165,6 +191,7 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
               name={"email"}
               type={"email"}
               placeholder={"Email Address"}
+              fn={setEmail}
             />
           </div>
           {/* Location */}
@@ -172,7 +199,7 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
             <Label label={"Location"} />
             <div className="flex gap-[10px]">
               <SelectOption
-                onChange={""}
+                fn={setLocation}
                 selectData={inquiryTypeData}
                 className={"w-[50%]"}
               />
@@ -181,6 +208,7 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
                 type={"text"}
                 name={"zipCode"}
                 className={"w-[50%] mb-2"}
+                fn={setZipCode}
               />
             </div>
           </div>
@@ -189,7 +217,7 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
           <div className="mb-4">
             <Label label={"Property"} />
             <SelectOption
-              onChange={""}
+              fn={setProperty}
               selectData={propertyData}
               className={"w-full"}
             />
@@ -200,12 +228,14 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
                   type={"number"}
                   name={"maxPrice"}
                   className={"w-[50%] mb-2"}
+                  fn={setMaxPrice}
                 />
                 <Input
                   placeholder={"Minimum size (Sq Ft)"}
                   type={"number"}
                   name={"minimumSize"}
                   className={"w-[50%] mb-2"}
+                  fn={setMinimumSize}
                 />
               </div>
               <div className="flex gap-[10px]">
@@ -214,12 +244,14 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
                   type={"number"}
                   name={"numberOfBeds"}
                   className={"w-[50%] mb-2"}
+                  fn={setNumberOfBeds}
                 />
                 <Input
                   placeholder={"Number of baths"}
                   type={"number"}
                   name={"numberOfBaths"}
                   className={"w-[50%] mb-2"}
+                  fn={setNumberOfBaths}
                 />
               </div>
             </div>
@@ -227,7 +259,10 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
           {/* GDPR Agreement */}
           <div>
             <Label label={"GDPR Agreement"} />
-            <input type="checkbox" />{" "}
+            <input
+              onChange={(e) => setAgreement(e.target.checked)}
+              type="checkbox"
+            />{" "}
             <span className="text-[15px] leading-[25px] text-secondary">
               I consent to having this website store my submitted <br />{" "}
               information
@@ -238,7 +273,7 @@ const InquiryForm: React.FC<InquiryFormProps> = () => {
               type="submit"
               className="rounded-[4px]  bg-[#00aeff] hover:bg-[#33beff] text-[16px] text-white px-[30px] py-[15px] w-full"
             >
-              submite
+              submit
             </button>
           </div>
         </form>

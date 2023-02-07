@@ -7,6 +7,11 @@ import SelectOption from "../shared/SelectOption";
 type RegisterPageProps = {};
 
 const RegisterPage: React.FC<RegisterPageProps> = () => {
+  const [firsName, setFirsName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [accountType, setAccountType] = useState("");
   const [signUpForm] = useState([
     {
       id: 1,
@@ -37,27 +42,17 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
       value: "Manager",
     },
   ]);
-  const [selectValue, SetSelectValue] = useState("");
-  const fromHandler: any = (e: {
-    preventDefault: any;
-    target: {
-      email: { value: string };
-      password: { value: string };
-      firstName: { value: string };
-      lastName: { value: string };
-      select: {
-        [option: string]: any;
-        value: string;
-      };
-    };
-  }) => {
+
+  const fromHandler = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const firstName = e.target.firstName.value;
-    const lastName = e.target.lastName.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const resignerType = selectValue;
-    console.log(firstName, lastName, email, password, resignerType);
+    const data = {
+      firsName,
+      lastName,
+      email,
+      password,
+      accountType,
+    };
+    console.log(data);
   };
 
   return (
@@ -90,6 +85,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
                         name={"firstName"}
                         placeholder={"First Name"}
                         className={"w-full"}
+                        fn={setFirsName}
                       />
                     </div>
                     <div className="my-3 w-full">
@@ -99,6 +95,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
                         name={"lastName"}
                         placeholder={"Last Name"}
                         className={"w-full"}
+                        fn={setLastName}
                       />
                     </div>
                   </div>
@@ -109,6 +106,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
                       name={"email"}
                       placeholder={"Email"}
                       className={"w-full"}
+                      fn={setEmail}
                     />
                   </div>
                   <div className="my-5">
@@ -118,6 +116,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
                       name={"password"}
                       placeholder={"password"}
                       className={"w-full"}
+                      fn={setPassword}
                     />
                   </div>
                   <div className="my-5">
@@ -126,7 +125,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
                       className={"mb-3"}
                     />
                     <SelectOption
-                      onChange={SetSelectValue}
+                      fn={setAccountType}
                       className="w-full"
                       selectData={signUpForm}
                     />

@@ -76,49 +76,50 @@ const Header: React.FC<HeaderProps> = () => {
     <div>
       <nav className="list-none flex items-center gap-2">
         {navigate.map((item) => (
-          <li key={item.id}>
-            <Link
-              href={item.path}
-              className={`  hover:text-primary font-semibold p-4 ${
-                isTrue ? "text-black" : " text-white"
-              }`}
-            >
-              {item.text}
-            </Link>
-          </li>
+          <Link
+            href={item.path}
+            className={`  hover:text-primary font-semibold p-4 ${
+              isTrue ? "text-black" : " text-white"
+            }`}
+          >
+            <li key={item.id}>{item.text}</li>
+          </Link>
         ))}
-        <li>
-          <Link
-            className={`  hover:text-primary p-4 font-semibold ${
-              isTrue ? "text-black" : " text-white"
-            }`}
-            href="tel:+8801768227738"
-          >
-            <span>+8801768227738</span>
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/person"
-            className={`  hover:text-primary font-semibold  p-4 ${
-              isTrue ? "text-black" : " text-white"
-            }`}
-          >
+
+        <Link
+          className={`  hover:text-primary p-4 font-semibold ${
+            isTrue ? "text-black" : " text-white"
+          }`}
+          href="tel:+8801768227738"
+        >
+          <li>
+            <span>+8801768227738</span>{" "}
+          </li>
+        </Link>
+
+        <Link
+          href="/person"
+          className={`  hover:text-primary font-semibold  p-4 ${
+            isTrue ? "text-black" : " text-white"
+          }`}
+        >
+          <li>
             <CgProfile className="w-[38px] text-[20px]" />
-          </Link>
-        </li>
-        <li>
-          <button
-            className={` border-[1px] border-white py-2 
+          </li>
+        </Link>
+
+        <button
+          className={` border-[1px] border-white py-2 
             px-[15px] text-[15px] font-medium leading-[20px] rounded-[5px] ${
               isTrue ? "text-white bg-secondary" : "text-black bg-white"
             }`}
-          >
+        >
+          <li>
             <Link className=" p-4" href={"/"}>
               Create a Listing
             </Link>
-          </button>
-        </li>
+          </li>
+        </button>
       </nav>
     </div>
   );
@@ -130,39 +131,42 @@ const Header: React.FC<HeaderProps> = () => {
           className="list-none absolute left-0 top-[-6px] w-full bg-white p-5 gap-4 flex flex-col"
         >
           {navigate.map((item) => (
-            <li key={item.id}>
-              <Link
-                href={item.path}
-                className={`   p-4 hover:text-primary font-semibold text-black `}
-              >
+            <Link href={item.path}>
+              <li key={item.id}>
+                className=
+                {`   p-4 hover:text-primary font-semibold text-black `}
                 {item.text}
-              </Link>
-            </li>
+              </li>
+            </Link>
           ))}
-          <li>
-            <Link
-              className={`   p-4 hover:text-primary font-semibold text-black`}
-              href="tel:+8801768227738"
-            >
+
+          <Link
+            className={`   p-4 hover:text-primary font-semibold text-black`}
+            href="tel:+8801768227738"
+          >
+            <li>
               <span>+8801768227738</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/person"
-              className={` p-4  hover:text-primary font-semibold text-black`}
-            >
+            </li>
+          </Link>
+
+          <Link
+            href="/person"
+            className={` p-4  hover:text-primary font-semibold text-black`}
+          >
+            <li>
               <CgProfile className="text-[20px] w-[36px]  mx-5 " />
-            </Link>
-          </li>
-          <li>
-            <button
-              className={` mx-5 p-4 border-[1px] border-white py-2 
+            </li>
+          </Link>
+
+          <button
+            className={` mx-5 p-4 border-[1px] border-white py-2 
         px-[15px] text-[15px] font-medium leading-[20px] rounded-[5px] text-white bg-black`}
-            >
-              <Link href="/">Create a Listing</Link>
-            </button>
-          </li>
+          >
+            <li>
+              <Link href="/">Create a Listing</Link>{" "}
+            </li>
+          </button>
+
           <button
             className="absolute right-[20px] top-[20px] "
             onClick={() => setOpen(false)}
