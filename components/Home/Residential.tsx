@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FiPlay } from "react-icons/fi";
-import React from "react";
+import React, { useState } from "react";
 import tag1 from "../../images/tagImg/tag1.jpg";
 import tag2 from "../../images/tagImg/tag2.jpg";
 import tag3 from "../../images/tagImg/tag3.jpg";
