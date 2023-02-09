@@ -15,7 +15,7 @@ import {
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.REACT_APP_API_URL,
+    baseUrl: process.env.NEXT_PUBLIC_API_URL,
   }),
   endpoints: (builder) => ({}),
 });
