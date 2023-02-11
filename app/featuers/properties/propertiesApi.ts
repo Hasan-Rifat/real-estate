@@ -1,8 +1,11 @@
-import axios from "../../../utilities/axios";
+import { apiSlice } from "../api/apiSlice";
 
-// async thunk functionality
-export const getProperties = async () => {
-  const response = await axios.get("/todo");
+const propertyApi = apiSlice.injectEndpoints({
+  endpoints: (builder) => ({
+    getProperties: builder.query({
+      query: () => "/property",
+    }),
+  }),
+});
 
-  return response.data;
-};
+export const { useGetPropertiesQuery } = propertyApi;

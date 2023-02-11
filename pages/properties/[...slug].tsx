@@ -5,7 +5,6 @@ type PropertyProps = {};
 const Property: React.FC<PropertyProps> = () => {
   const router = useRouter();
   const { slug } = router.query;
-  console.log(slug);
   return (
     <section>
       <div className="max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
