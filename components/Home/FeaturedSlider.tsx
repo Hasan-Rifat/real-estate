@@ -23,9 +23,9 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay, Navigation } from "swiper";
 
 import Link from "next/link";
-import { useGetPropertiesQuery } from "../../app/featuers/properties/propertiesApi";
 import Loading from "../shared/Loading";
 import Error from "../shared/Error";
+import { useGetPropertiesQuery } from "../../redux/featuers/properties/propertiesApi";
 
 type FeaturedSliderProps = {};
 

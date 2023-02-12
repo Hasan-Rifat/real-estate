@@ -11,21 +11,11 @@ import { GrAttachment } from "react-icons/gr";
 import { VscOpenPreview } from "react-icons/vsc";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import { RxPlusCircled } from "react-icons/rx";
-
-import img1 from "../../images/Properties/006.jpg";
-import img2 from "../../images/Properties/008.jpg";
-import img3 from "../../images/Properties/012.jpg";
-import img4 from "../../images/Properties/030.jpg";
-import img5 from "../../images/Properties/035.jpg";
-import img6 from "../../images/Properties/036.jpg";
-import img7 from "../../images/Properties/040.jpg";
-import img8 from "../../images/Properties/045.jpg";
-import img9 from "../../images/Properties/047.jpg";
 import Image from "next/image";
-import { useGetPropertiesQuery } from "../../app/featuers/properties/propertiesApi";
 import Loading from "../shared/Loading";
 import Error from "../shared/Error";
 import Link from "next/dist/client/link";
+import { useGetPropertiesQuery } from "../../redux/featuers/properties/propertiesApi";
 
 type FinestPropertiesProps = {};
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { useGetPropertyByIdQuery } from "../../app/featuers/properties/propertiesApi";
 import Loading from "../../components/shared/Loading";
 import Error from "../../components/shared/Error";
 import SingleProperty from "../../components/SingleProperty/SingleProperty";
+import { useGetPropertyByIdQuery } from "../../redux/featuers/properties/propertiesApi";
 type PropertyProps = {};
 
 const Property: React.FC<PropertyProps> = () => {
