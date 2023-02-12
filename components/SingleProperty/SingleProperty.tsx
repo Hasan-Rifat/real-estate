@@ -1,5 +1,14 @@
 import Image from "next/dist/client/image";
 import React from "react";
+import {
+  MdOutlineBathroom,
+  MdOutlineBedroomParent,
+  MdOutlineFavoriteBorder,
+} from "react-icons/md";
+import { GiHomeGarage } from "react-icons/gi";
+import { BsFillFilterSquareFill } from "react-icons/bs";
+import { SlCalender } from "react-icons/sl";
+import { CiMap } from "react-icons/ci";
 
 type SinglePropertyProps = {
   property: [
@@ -55,67 +64,187 @@ const SingleProperty: React.FC<SinglePropertyProps> = ({ property }) => {
     PropertyType,
     PropertyStatus,
   } = property[0];
+
+  console.log();
   return (
-    <section className="py-28">
-      <div className="max-w-[1210px] px-5 py-24 mx-auto flex flex-col">
-        <div className=" ">
-          <div className="lg:w-4/6 mx-auto">
-            <div className="rounded-lg h-64 overflow-hidden">
-              <Image src={img} alt={title} width={720} height={300} />
-            </div>
-            <div className="flex flex-col sm:flex-row mt-10">
-              <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
-                <div className="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    className="w-10 h-10"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                </div>
-                <div className="flex flex-col items-center text-center justify-center">
-                  <h2 className="font-medium title-font mt-4 text-gray-900 text-lg">
-                    Phoebe Caulfield
-                  </h2>
-                  <div className="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
-                  <p className="text-base">
-                    Raclette knausgaard hella meggs normcore williamsburg enamel
-                    pin sartorial venmo tbh hot chicken gentrify portland.
-                  </p>
+    <section className="py-16">
+      <div className="max-w-[1170px] px-4 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
+        <div>
+          <div className="">
+            <div className="rounded-lg  overflow-hidden relative">
+              <Image
+                className="object-cover object-center h-80"
+                src={img}
+                alt={title}
+                width={1200}
+                height={300}
+              />
+              <div className="bg-[#000] rounded-t-lg  opacity-20 absolute w-full h-full bottom-0 left-0 -z-1"></div>
+              <div className="absolute left-0 top-0 p-[15px] w-full h-full">
+                <div className="flex justify-between flex-col w-full h-full">
+                  <div>
+                    <div className="flex gap-5 ">
+                      <span className="bg-[#77c720] text-white rounded-[2px] py-[3px] px-[5px] text-[10px] leading-[15px] font-semibold">
+                        FEATUERD
+                      </span>
+                      <span className="bg-black opacity-[0.6] rounded-[2px] py-[3px] px-[5px] text-white text-[10px] leading-[15px] font-semibold uppercase">
+                        {feature}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-                <p className="leading-relaxed text-lg mb-4">
-                  Meggings portland fingerstache lyft, post-ironic fixie man bun
-                  banh mi umami everyday carry hexagon locavore direct trade art
-                  party. Locavore small batch listicle gastropub farm-to-table
-                  lumbersexual salvia messenger bag. Coloring book flannel
-                  truffaut craft beer drinking vinegar sartorial, disrupt
-                  fashion axe normcore meh butcher. Portland 90's scenester
-                  vexillologist forage post-ironic asymmetrical, chartreuse
-                  disrupt butcher paleo intelligentsia pabst before they sold
-                  out four loko. 3 wolf moon brooklyn.
+            </div>
+
+            {/* overview */}
+            <div className="bg-white p-20 mt-20">
+              <div className="flex justify-between">
+                <p>overview</p>
+                <p className="text-secondary">
+                  <strong>Property ID:</strong> <span>{_id.slice(0, 10)}</span>
                 </p>
-                <a className="text-indigo-500 inline-flex items-center">
-                  Learn More
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    className="w-4 h-4 ml-2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
+              </div>
+              <hr className="my-5" />
+              <div className="flex justify-between">
+                <div>
+                  <strong>{PropertyType}</strong>
+                  <p>Property Type</p>
+                </div>
+                <div>
+                  <p className="flex gap-2 items-center">
+                    <MdOutlineBedroomParent />
+                    <strong>{Bedrooms}</strong>
+                  </p>
+                  <p>Bedrooms</p>
+                </div>
+                <div>
+                  <p className="flex gap-2 items-center">
+                    <MdOutlineBathroom />
+                    <strong>{Bathrooms}</strong>
+                  </p>
+                  <p>Bathrooms</p>
+                </div>
+                <div>
+                  <p className="flex gap-2 items-center">
+                    <GiHomeGarage />
+                    <strong>{Garage}</strong>
+                  </p>
+                  <p>Garage</p>
+                </div>
+                <div>
+                  <p className="flex gap-2 items-center">
+                    <BsFillFilterSquareFill />
+                    <strong>{GarageSize}</strong>
+                  </p>
+                  <p>Sq Ft</p>
+                </div>
+                <div>
+                  <p className="flex gap-2 items-center">
+                    <SlCalender />
+                    <strong>{YearBuilt}</strong>
+                  </p>
+                  <p>Year Built</p>
+                </div>
+              </div>
+            </div>
+            {/* description */}
+            <div className="p-10 bg-white mt-10 rounded">
+              <p>Description</p>
+              <hr className="my-5" />
+              <p>{description}</p>
+            </div>
+            {/* location */}
+            <div className="p-10 bg-white mt-10 rounded">
+              <div className="flex justify-between items-center mb-8">
+                <p>Address</p>
+                <button className="bg-primary text-white gap-2 flex items-center p-2 rounded-lg">
+                  <CiMap /> Open on Google Maps
+                </button>
+              </div>
+              <hr className="my-5" />
+              <div className="flex justify-between gap-4">
+                <div className="w-2/4">
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong> Address</strong>
+                    <p>{address}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>city</strong>
+                    <p>{City}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>State/Country</strong>
+                    <p>{State}</p>
+                  </div>
+                </div>
+                <div className="w-2/4">
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong> Zip/Postal Code</strong>
+                    <p>{ZipPostalCode}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>Area</strong>
+                    <p>{Area}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>Country</strong>
+                    <p>{County}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* details */}
+            <div className="bg-white p-20 mt-10 rounded">
+              <div className="flex justify-between">
+                <p>Details</p>
+                <p>{YearBuilt}</p>
+              </div>
+              <hr className="my-5" />
+              <div className="flex justify-between gap-4 bg-[#e5f7ff] p-[30px] border-[#00aeff] border-[1px] rounded">
+                <div className="w-2/4">
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong> Property ID:</strong>
+                    <p>{_id.slice(0, 10)}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>Price</strong>
+                    <p>$ {price}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>Property Size</strong>
+                    <p>{PropertySize}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>Bedrooms</strong>
+                    <p>{Bedrooms}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>Bathrooms</strong>
+                    <p>{Bathrooms}</p>
+                  </div>
+                </div>
+                <div className="w-2/4">
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>Garage</strong>
+                    <p>{Garage}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>Garage Size</strong>
+                    <p>{GarageSize}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>Year Built</strong>
+                    <p>{YearBuilt}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>Property Type</strong>
+                    <p>{PropertyType}</p>
+                  </div>
+                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                    <strong>Property Status</strong>
+                    <p>{PropertyStatus}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

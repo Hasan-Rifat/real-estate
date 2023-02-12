@@ -9,7 +9,7 @@ const Header: React.FC<HeaderProps> = () => {
   const [isTrue, setTrue] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const modal = useRef<HTMLDivElement>(null);
-
+  const route = useRouter();
   useEffect(() => {
     const headerHandler = () => {
       if (window.scrollY >= 120) {
@@ -86,8 +86,10 @@ const Header: React.FC<HeaderProps> = () => {
             key={item.id}
             href={item.path}
             className={`  hover:text-primary font-semibold p-4 ${
-              isTrue ? "text-black" : " text-white"
-            }`}
+              route.pathname === "/" && isTrue ? "text-black" : " text-white"
+            }
+            ${route.pathname !== "/" && "text-secondary"}
+            `}
           >
             <li>{item.text}</li>
           </Link>
@@ -95,8 +97,10 @@ const Header: React.FC<HeaderProps> = () => {
 
         <Link
           className={`  hover:text-primary p-4 font-semibold ${
-            isTrue ? "text-black" : " text-white"
-          }`}
+            route.pathname === "/" && isTrue ? "text-black" : " text-white"
+          }
+            ${route.pathname !== "/" && "text-secondary"}
+          `}
           href="tel:+8801768227738"
         >
           <li>
@@ -107,8 +111,10 @@ const Header: React.FC<HeaderProps> = () => {
         <Link
           href="/person"
           className={`  hover:text-primary font-semibold  p-4 ${
-            isTrue ? "text-black" : " text-white"
-          }`}
+            route.pathname === "/" && isTrue ? "text-black" : " text-white"
+          }
+          ${route.pathname !== "/" && "text-secondary"}
+          `}
         >
           <li>
             <CgProfile className="w-[38px] text-[20px]" />
@@ -118,8 +124,12 @@ const Header: React.FC<HeaderProps> = () => {
         <button
           className={` border-[1px] border-white py-2 
             px-[15px] text-[15px] font-medium leading-[20px] rounded-[5px] ${
-              isTrue ? "text-white bg-secondary" : "text-black bg-white"
-            }`}
+              route.pathname === "/" && isTrue
+                ? "text-white bg-secondary"
+                : "text-black bg-white"
+            }
+            
+            ${route.pathname !== "/" && "bg-secondary !text-white"}`}
         >
           <li>
             <Link className=" p-4" href={"/"}>
@@ -197,31 +207,33 @@ const Header: React.FC<HeaderProps> = () => {
     </div>
   );
 
-  const route = useRouter();
   // const hUrl = route.pathname !== "/" && setTrue(true);
 
   return (
     <header
-      className={`z-50 absolute top-0 left-0 w-full shadow-[0px_4px_80px_rgba(0,0,0,0.1)]  text-white  ${
+      className={`z-50 absolute top-0 left-0 w-full shadow-[0px_4px_80px_rgba(0,0,0,0.1)]  text-secondary  ${
         route.pathname === "/" &&
         isTrue &&
-        "bg-white shadow-[0px_4px_80px_rgba(0,0,0,0.1)] sticky left-0 top-0 transition ease-in-out  delay-150"
+        "bg-white shadow-[0px_4px_80px_rgba(0,0,0,0.1)] sticky left-0 top-0 transition ease-in-out text-secondary delay-150"
       } 
       
       ${
         route.pathname !== "/" &&
-        isTrue &&
-        "sticky top-0 left-0 w-full shadow-[0px_4px_80px_rgba(0,0,0,0.1)] !text-secondary bg-black"
+        "sticky top-0 left-0 w-full shadow-[0px_4px_80px_rgba(0,0,0,0.1)] text-secondary bg-white"
       }`}
     >
-      <div className="max-w-[1300px] p-4 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
+      <div className="max-w-[1210px] p-4 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
         <div className=" flex items-center justify-between w-full">
           <div>
             <Link className="text-primary w-full" href="/">
               <p
                 className={`w-full mx-5 p-4 hover:text-primary font-semibold ${
-                  isTrue ? "text-black" : " text-white"
-                }`}
+                  route.pathname === "/" && isTrue
+                    ? "text-black"
+                    : " text-white"
+                }
+                
+                ${route.pathname !== "/" && "text-secondary"}`}
               >
                 Hasan Rifat
               </p>
