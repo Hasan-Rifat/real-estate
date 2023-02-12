@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 type LoginFormProps = {};
 
@@ -11,13 +11,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const LoginForm: React.FC<LoginFormProps> = () => {
-  const fromHandler: any = (e: {
-    preventDefault: any;
-    target: { email: { value: string }; password: { value: string } };
-  }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const fromHandler = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
 
     console.log(email, password);
   };
@@ -46,6 +44,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
                   <div className="my-3">
                     <Label label={"Email"} className={"mb-3"} />
                     <Input
+                      fn={setEmail}
                       type={"email"}
                       name={"email"}
                       placeholder={"Email"}
@@ -55,6 +54,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
                   <div className="my-5">
                     <Label label={"password"} className={"mb-3"} />
                     <Input
+                      fn={setPassword}
                       type={"password"}
                       name={"password"}
                       placeholder={"password"}
