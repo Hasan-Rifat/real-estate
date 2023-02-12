@@ -1,6 +1,5 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { apiSlice } from "./featuers/api/apiSlice";
-import counterReducer from "./featuers/counter/counterSlice";
 import properties from "./featuers/properties/propertiesSlice";
 export const store = configureStore({
   reducer: {
