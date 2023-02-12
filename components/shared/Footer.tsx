@@ -162,11 +162,13 @@ const Footer: React.FC<FooterProps> = () => {
                     Newsletter
                   </h2>
                   <form className="grid grid-cols-1 sm:grid-cols-5 gap-[30px] items-center">
-                    <Input
+                    <input
                       type={"email"}
-                      placeholder={"email"}
+                      placeholder="email"
                       name={"email"}
-                      className={"w-full sm:col-span-4"}
+                      className={
+                        "w-full sm:col-span-4 px-[16px] py-2 border-[#dce0e0] border-[1px] rounded-[2px]  ${className} focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      }
                     />
                     <button
                       className=" border-0 rounded-[4px]  bg-[#00aeff] hover:bg-[#33beff] text-[14px] text-white sm:w-full sm:col-span-1 btn btn-sm"
