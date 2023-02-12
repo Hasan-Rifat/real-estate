@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getProperties } from "./propertiesApi";
 
 interface initialStateS {
   properties: never[];
