@@ -19,5 +19,4 @@ const propertiesSlice = createSlice({
   initialState,
   reducers: {},
 });
-
 export default propertiesSlice.reducer;
