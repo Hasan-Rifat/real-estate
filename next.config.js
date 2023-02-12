@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["real-estate-two-gamma.vercel.app"],
+    domains: ["github.com"],
   },
 };

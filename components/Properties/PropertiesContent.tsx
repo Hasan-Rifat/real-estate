@@ -21,10 +21,10 @@ import {
 } from "react-icons/md";
 import { RxPlusCircled } from "react-icons/rx";
 import { VscOpenPreview } from "react-icons/vsc";
-import { useGetPropertiesQuery } from "../../app/featuers/properties/propertiesApi";
 import Loading from "../shared/Loading";
 import Error from "../shared/Error";
 import Link from "next/dist/client/link";
+import { useGetPropertiesQuery } from "../../redux/featuers/properties/propertiesApi";
 type PropertiesContentProps = {};
 
 const PropertiesContent: React.FC<PropertiesContentProps> = () => {
