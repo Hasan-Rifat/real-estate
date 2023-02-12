@@ -33,6 +33,12 @@ const Header: React.FC<HeaderProps> = () => {
     };
   }, [isTrue, open]);
 
+  useEffect(() => {
+    if (route.pathname !== "/") {
+      return setTrue(true);
+    }
+  }, []);
+
   interface navigateInterface {
     id: number;
     text: string;
@@ -72,7 +78,7 @@ const Header: React.FC<HeaderProps> = () => {
     },
   ];
 
-  const navigation = (
+  const navigation: JSX.Element = (
     <div>
       <nav className="list-none flex items-center gap-2">
         {navigate.map((item) => (
@@ -124,7 +130,7 @@ const Header: React.FC<HeaderProps> = () => {
       </nav>
     </div>
   );
-  const navigateMobile: any = (
+  const navigateMobile: JSX.Element = (
     <div className="relative p-8 w-full">
       {open && (
         <nav
@@ -191,13 +197,22 @@ const Header: React.FC<HeaderProps> = () => {
     </div>
   );
 
+  const route = useRouter();
+  // const hUrl = route.pathname !== "/" && setTrue(true);
+
   return (
     <header
-      className={`z-50 absolute top-0 left-0 w-full  ${
-        isTrue
-          ? "bg-white shadow-[0px_4px_80px_rgba(0,0,0,0.1)] sticky left-0 top-0 transition ease-in-out  delay-150"
-          : "shadow-[0px_4px_80px_rgba(0,0,0,0.1)]  text-white"
-      } `}
+      className={`z-50 absolute top-0 left-0 w-full shadow-[0px_4px_80px_rgba(0,0,0,0.1)]  text-white  ${
+        route.pathname === "/" &&
+        isTrue &&
+        "bg-white shadow-[0px_4px_80px_rgba(0,0,0,0.1)] sticky left-0 top-0 transition ease-in-out  delay-150"
+      } 
+      
+      ${
+        route.pathname !== "/" &&
+        isTrue &&
+        "sticky top-0 left-0 w-full shadow-[0px_4px_80px_rgba(0,0,0,0.1)] !text-secondary bg-black"
+      }`}
     >
       <div className="max-w-[1300px] p-4 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
         <div className=" flex items-center justify-between w-full">

@@ -5,7 +5,10 @@ const propertyApi = apiSlice.injectEndpoints({
     getProperties: builder.query({
       query: () => "/property",
     }),
+    getPropertyById: builder.query({
+      query: (id) => `/property/${id}`,
+    }),
   }),
 });
 
-export const { useGetPropertiesQuery } = propertyApi;
+export const { useGetPropertiesQuery, useGetPropertyByIdQuery } = propertyApi;

@@ -1,16 +1,35 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { useGetPropertyByIdQuery } from "../../app/featuers/properties/propertiesApi";
+import Loading from "../../components/shared/Loading";
+import Error from "../../components/shared/Error";
+import SingleProperty from "../../components/SingleProperty/SingleProperty";
 type PropertyProps = {};
 
 const Property: React.FC<PropertyProps> = () => {
   const router = useRouter();
   const { slug } = router.query;
+  const { data: property, isError, isLoading } = useGetPropertyByIdQuery(slug);
+
+  let content = null;
+
+  if (isLoading) return <Loading />;
+
+  if (!isLoading && isError) {
+    content = <Error message="Something went wrong" />;
+  }
+
+  if (!isLoading && !isError && property.length === 0) {
+    content = <Error message="No data found" />;
+  }
+
+  if (!isLoading && !isError && property.length > 0) {
+  }
+
   return (
-    <section>
-      <div className="max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        Have a good coding {slug}
-      </div>
-    </section>
+    <div>
+      <SingleProperty property={property.data} />
+    </div>
   );
 };
 export default Property;
