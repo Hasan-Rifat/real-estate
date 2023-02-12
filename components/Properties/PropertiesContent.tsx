@@ -21,304 +21,70 @@ import {
 } from "react-icons/md";
 import { RxPlusCircled } from "react-icons/rx";
 import { VscOpenPreview } from "react-icons/vsc";
+import { useGetPropertiesQuery } from "../../app/featuers/properties/propertiesApi";
+import Loading from "../shared/Loading";
+import Error from "../shared/Error";
+import Link from "next/dist/client/link";
 type PropertiesContentProps = {};
 
 const PropertiesContent: React.FC<PropertiesContentProps> = () => {
-  const data = [
-    {
-      feature: "for Rent",
-      id: 1,
-      img: img1,
-      title: "Light And Modern Apartment",
-      description: `
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        
-              Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-              `,
-      address: "2436 SW 8th St",
-      City: "Miami",
-      State: "Florida",
-      ZipPostalCode: "33140",
-      Area: "West Flagger",
-      County: "United States  ",
-      Apartment: "Property Type ",
-      Bedrooms: 4,
-      Bathrooms: 2,
-      Garage: 1,
-      YearBuilt: 2016,
-      squareFt: "Property Type ",
-      GarageSize: "200 SqFt",
-      price: "4,500",
-      PropertySize: "1200 Sq Ft",
-      PropertyType: "Apartment",
-      PropertyStatus: "For Rent",
-    },
-    {
-      feature: "for sale",
-      id: 2,
-      img: img2,
-      title: "Light And Modern Apartment",
-      description: `
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        
-              Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-              `,
-      address: "2436 SW 8th St",
-      City: "Miami",
-      State: "Florida",
-      ZipPostalCode: "33140",
-      Area: "West Flagger",
-      County: "United States  ",
-      Apartment: "Property Type ",
-      Bedrooms: 4,
-      Bathrooms: 2,
-      Garage: 1,
-      YearBuilt: 2016,
-      squareFt: "Property Type ",
-      GarageSize: "200 SqFt",
-      price: "4,500",
-      PropertySize: "1200 Sq Ft",
-      PropertyType: "Apartment",
-      PropertyStatus: "For Rent",
-    },
-    {
-      feature: "for rent",
-      id: 3,
-      img: img3,
-      title: "Light And Modern Apartment",
-      description: `
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        
-              Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-              `,
-      address: "2436 SW 8th St",
-      City: "Miami",
-      State: "Florida",
-      ZipPostalCode: "33140",
-      Area: "West Flagger",
-      County: "United States  ",
-      Apartment: "Property Type ",
-      Bedrooms: 4,
-      Bathrooms: 2,
-      Garage: 1,
-      YearBuilt: 2016,
-      squareFt: "Property Type ",
-      GarageSize: "200 SqFt",
-      price: "4,500",
-      PropertySize: "1200 Sq Ft",
-      PropertyType: "Apartment",
-      PropertyStatus: "For Rent",
-    },
-    {
-      feature: "for sale",
-      id: 4,
-      img: img4,
-      title: "Light And Modern Apartment",
-      description: `
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        
-              Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-              `,
-      address: "2436 SW 8th St",
-      City: "Miami",
-      State: "Florida",
-      ZipPostalCode: "33140",
-      Area: "West Flagger",
-      County: "United States  ",
-      Apartment: "Property Type ",
-      Bedrooms: 4,
-      Bathrooms: 2,
-      Garage: 1,
-      YearBuilt: 2016,
-      squareFt: "Property Type ",
-      GarageSize: "200 SqFt",
-      price: "4,500",
-      PropertySize: "1200 Sq Ft",
-      PropertyType: "Apartment",
-      PropertyStatus: "For Rent",
-    },
-    {
-      feature: "for rent",
-      id: 5,
-      img: img5,
-      title: "Light And Modern Apartment",
-      description: `
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        
-              Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-              `,
-      address: "2436 SW 8th St",
-      City: "Miami",
-      State: "Florida",
-      ZipPostalCode: "33140",
-      Area: "West Flagger",
-      County: "United States  ",
-      Apartment: "Property Type ",
-      Bedrooms: 4,
-      Bathrooms: 2,
-      Garage: 1,
-      YearBuilt: 2016,
-      squareFt: "Property Type ",
-      GarageSize: "200 SqFt",
-      price: "4,500",
-      PropertySize: "1200 Sq Ft",
-      PropertyType: "Apartment",
-      PropertyStatus: "For Rent",
-    },
-    {
-      feature: "for sale",
-      id: 6,
-      img: img6,
-      title: "Light And Modern Apartment",
-      description: `
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        
-              Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-              `,
-      address: "2436 SW 8th St",
-      City: "Miami",
-      State: "Florida",
-      ZipPostalCode: "33140",
-      Area: "West Flagger",
-      County: "United States  ",
-      Apartment: "Property Type ",
-      Bedrooms: 4,
-      Bathrooms: 2,
-      Garage: 1,
-      YearBuilt: 2016,
-      squareFt: "Property Type ",
-      GarageSize: "200 SqFt",
-      price: "4,500",
-      PropertySize: "1200 Sq Ft",
-      PropertyType: "Apartment",
-      PropertyStatus: "For Rent",
-    },
-    {
-      feature: "for rent",
-      id: 7,
-      img: img7,
-      title: "Light And Modern Apartment",
-      description: `
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        
-              Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-              `,
-      address: "2436 SW 8th St",
-      City: "Miami",
-      State: "Florida",
-      ZipPostalCode: "33140",
-      Area: "West Flagger",
-      County: "United States  ",
-      Apartment: "Property Type ",
-      Bedrooms: 4,
-      Bathrooms: 2,
-      Garage: 1,
-      YearBuilt: 2016,
-      squareFt: "Property Type ",
-      GarageSize: "200 SqFt",
-      price: "4,500",
-      PropertySize: "1200 Sq Ft",
-      PropertyType: "Apartment",
-      PropertyStatus: "For Rent",
-    },
-    {
-      feature: "for sale",
-      id: 8,
-      img: img8,
-      title: "Light And Modern Apartment",
-      description: `
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        
-              Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-              `,
-      address: "2436 SW 8th St",
-      City: "Miami",
-      State: "Florida",
-      ZipPostalCode: "33140",
-      Area: "West Flagger",
-      County: "United States  ",
-      Apartment: "Property Type ",
-      Bedrooms: 4,
-      Bathrooms: 2,
-      Garage: 1,
-      YearBuilt: 2016,
-      squareFt: "Property Type ",
-      GarageSize: "200 SqFt",
-      price: "4,500",
-      PropertySize: "1200 Sq Ft",
-      PropertyType: "Apartment",
-      PropertyStatus: "For Rent",
-    },
-    {
-      feature: "for rent",
-      id: 9,
-      img: img9,
-      title: "Light And Modern Apartment",
-      description: `
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        
-              Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-              `,
-      address: "2436 SW 8th St",
-      City: "Miami",
-      State: "Florida",
-      ZipPostalCode: "33140",
-      Area: "West Flagger",
-      County: "United States  ",
-      Apartment: "Property Type ",
-      Bedrooms: 4,
-      Bathrooms: 2,
-      Garage: 1,
-      YearBuilt: 2016,
-      squareFt: "Property Type ",
-      GarageSize: "200 SqFt",
-      price: "4,500",
-      PropertySize: "1200 Sq Ft",
-      PropertyType: "Apartment",
-      PropertyStatus: "For Rent",
-    },
-    {
-      feature: "for sale",
-      id: 10,
-      img: img1,
-      title: "Light And Modern Apartment",
-      description: `
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-        
-              Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.
-              `,
-      address: "2436 SW 8th St",
-      City: "Miami",
-      State: "Florida",
-      ZipPostalCode: "33140",
-      Area: "West Flagger",
-      County: "United States  ",
-      Apartment: "Property Type ",
-      Bedrooms: 4,
-      Bathrooms: 2,
-      Garage: 1,
-      YearBuilt: 2016,
-      squareFt: "Property Type ",
-      GarageSize: "200 SqFt",
-      price: "4,500",
-      PropertySize: "1200 Sq Ft",
-      PropertyType: "Apartment",
-      PropertyStatus: "For Rent",
-    },
-  ];
-  return (
-    <div className="mt-10 max-w-[1210px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-        {data.map((item) => (
-          <div key={item.id}>
+  interface property {
+    _id: string;
+    feature: string;
+    img: string;
+    title: string;
+    description: string;
+    address: string;
+    City: string;
+    State: string;
+    ZipPostalCode: string;
+    Area: string;
+    County: string;
+    Apartment: string;
+    Bedrooms: number;
+    Bathrooms: number;
+    Garage: number;
+    YearBuilt: number;
+    squareFt: string;
+    GarageSize: string;
+    price: number;
+    PropertySize: string;
+    PropertyType: string;
+    PropertyStatus: string;
+  }
+
+  const { data, isError, isLoading } = useGetPropertiesQuery({}, {});
+
+  let content = null;
+
+  if (isLoading) content = <Loading />;
+
+  if (!isLoading && isError) {
+    content = <Error message={"internal error"} />;
+  }
+
+  if (!isLoading && !isError && data?.data?.length === 0) {
+    content = <Error message={"No data found"} />;
+  }
+
+  if (!isLoading && !isError && data?.data?.length > 0) {
+    content = (
+      <div className="grid grid-cols-3 gap-10">
+        {data.data.map((item: property) => (
+          <Link
+            key={item._id}
+            className="w-full h-full block"
+            href={`/properties/${item._id}`}
+          >
             <div className="shadow-xl bg-white rounded-[.25rem]  ">
-              <div className="relative">
+              <div className="relative w-full h-[293px]">
                 <Image
-                  className="rounded-t-lg w-full h-full"
-                  src={item.img}
+                  className="rounded-t-lg object-fill relative"
+                  src={item?.img}
                   alt={"slider img"}
+                  fill
                 />
-                <div className="bg-[#000] rounded-t-lg  opacity-40 absolute w-full h-full bottom-0 left-0 -z-1"></div>
+                <div className="bg-[#000] rounded-t-lg  opacity-20 absolute w-full h-full bottom-0 left-0 -z-1"></div>
                 <div className="absolute left-0 top-0 p-[15px] w-full h-full">
                   <div className="flex justify-between flex-col w-full h-full">
                     <div>
@@ -404,10 +170,27 @@ const PropertiesContent: React.FC<PropertiesContentProps> = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
-    </div>
+    );
+  }
+  return (
+    <section className="py-[70px]">
+      <div className="max-w-[1280px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <div className="pb-[100px] mx-auto">
+          <h2 className="font-normal text-center text-[35px] leading-[42px] text-[#000]">
+            Discover Our Featured Listings
+          </h2>
+          <p className="mt-3 text-center text-[16px] leading-[25px] text-accent">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit
+          </p>
+        </div>
+        {/* 6 properties start*/}
+        {content}
+        {/* 6 properties end*/}
+      </div>
+    </section>
   );
 };
 export default PropertiesContent;
