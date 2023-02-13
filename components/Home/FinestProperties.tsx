@@ -61,7 +61,7 @@ const FinestProperties: React.FC<FinestPropertiesProps> = () => {
 
   if (!isLoading && !isError && data?.data?.length > 0) {
     content = (
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {data.data.slice(0, 6).map((item: property) => (
           <Link
             key={item._id}
@@ -170,8 +170,8 @@ const FinestProperties: React.FC<FinestPropertiesProps> = () => {
   return (
     <section className="py-[70px]">
       <div className="max-w-[1280px] mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <div className="pb-[100px] mx-auto">
-          <h2 className="font-normal text-center text-[35px] leading-[42px] text-[#000]">
+        <div className="pb-[50px] sm:pb-[100px] mx-auto">
+          <h2 className="font-normal text-center text-[24px] md:text-[35px] leading-[42px] text-[#000]">
             Discover Our Featured Listings
           </h2>
           <p className="mt-3 text-center text-[16px] leading-[25px] text-accent">

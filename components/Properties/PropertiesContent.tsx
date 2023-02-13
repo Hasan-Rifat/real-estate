@@ -69,7 +69,7 @@ const PropertiesContent: React.FC<PropertiesContentProps> = () => {
 
   if (!isLoading && !isError && data?.data?.length > 0) {
     content = (
-      <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {data.data.map((item: property) => (
           <Link
             key={item._id}

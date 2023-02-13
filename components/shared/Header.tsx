@@ -47,11 +47,6 @@ const Header: React.FC<HeaderProps> = () => {
 
   const navigate: Array<navigateInterface> = [
     {
-      id: 1,
-      text: "Home",
-      path: "/",
-    },
-    {
       id: 2,
       text: "Properties",
       path: "/properties",
@@ -149,16 +144,14 @@ const Header: React.FC<HeaderProps> = () => {
         >
           {navigate.map((item) => (
             <Link key={item.id} href={item.path}>
-              <li>
-                className=
-                {`   p-4 hover:text-primary font-semibold text-black `}
+              <li className="hover:text-primary font-semibold text-black">
                 {item.text}
               </li>
             </Link>
           ))}
 
           <Link
-            className={`   p-4 hover:text-primary font-semibold text-black`}
+            className={`hover:text-primary font-semibold text-black`}
             href="tel:+8801768227738"
           >
             <li>
@@ -171,7 +164,7 @@ const Header: React.FC<HeaderProps> = () => {
             className={` p-4  hover:text-primary font-semibold text-black`}
           >
             <li>
-              <CgProfile className="text-[20px] w-[36px]  mx-5 " />
+              <CgProfile className="text-[20px] w-[36px]  -mx-5 " />
             </li>
           </Link>
 
@@ -207,8 +200,6 @@ const Header: React.FC<HeaderProps> = () => {
     </div>
   );
 
-  // const hUrl = route.pathname !== "/" && setTrue(true);
-
   return (
     <header
       className={`z-50 absolute top-0 left-0 w-full shadow-[0px_4px_80px_rgba(0,0,0,0.1)]  text-secondary  ${
@@ -224,8 +215,8 @@ const Header: React.FC<HeaderProps> = () => {
     >
       <div className="max-w-[1210px] p-4 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
         <div className=" flex items-center justify-between w-full">
-          <div>
-            <Link className="text-primary w-full" href="/">
+          <div className="w-[13rem] md:w-[9rem]">
+            <Link className="text-primary w-full block " href="/">
               <p
                 className={`w-full mx-5 p-4 hover:text-primary font-semibold ${
                   route.pathname === "/" && isTrue
