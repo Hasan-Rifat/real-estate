@@ -52,6 +52,7 @@ const PropertiesContent: React.FC<PropertiesContentProps> = () => {
     PropertyType: string;
     PropertyStatus: string;
   }
+  [];
 
   const { data, isError, isLoading } = useGetPropertiesQuery({}, {});
 

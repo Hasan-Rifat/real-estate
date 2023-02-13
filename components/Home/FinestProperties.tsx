@@ -44,6 +44,7 @@ const FinestProperties: React.FC<FinestPropertiesProps> = () => {
     PropertyType: string;
     PropertyStatus: string;
   }
+  [];
 
   const { data, isError, isLoading } = useGetPropertiesQuery({}, {});
 

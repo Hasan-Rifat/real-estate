@@ -54,6 +54,7 @@ const FeaturedSlider: React.FC<FeaturedSliderProps> = () => {
     PropertyType: string;
     PropertyStatus: string;
   }
+  [];
 
   const { data, isError, isLoading } = useGetPropertiesQuery({}, {});
 
