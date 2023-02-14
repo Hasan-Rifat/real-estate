@@ -4,9 +4,12 @@ import Input from "../shared/Input";
 import Label from "../shared/Label";
 import b from "../../images/Properties/035.jpg";
 import SelectOption from "../shared/SelectOption";
+import { useUserRegisterMutation } from "../../redux/featuers/user/userApi";
 type RegisterPageProps = {};
 
 const RegisterPage: React.FC<RegisterPageProps> = () => {
+  const [userRegister, { isError, isLoading, data: userData, error }] =
+    useUserRegisterMutation();
   const [firsName, setFirsName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -52,7 +55,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
       password,
       accountType,
     };
-    console.log(data);
+    userRegister(data);
   };
 
   return (
@@ -133,6 +136,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
                   <div className="flex gap-4">
                     <button
                       type={"submit"}
+                      disabled={isLoading}
                       className="mt-[15px] bg-blue-600 text-white font-semibold text-sm leading-snug uppercase rounded shadow-md hover:text-black border-0 hover:bg-[#fbc21c] hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-[20%] py-[10px]"
                     >
                       Register
