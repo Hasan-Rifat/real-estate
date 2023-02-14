@@ -22,7 +22,7 @@ const person: React.FC<personProps> = () => {
             <div className="z-10 w-full">
               <div className="">
                 <h2 className="font-normal text-[35px] leading-[42px] text-white z-10 text-center w-full mt-8">
-                  Account Page
+                  Account
                 </h2>
               </div>
             </div>
