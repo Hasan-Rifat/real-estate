@@ -9,6 +9,8 @@ import { GiHomeGarage } from "react-icons/gi";
 import { BsFillFilterSquareFill } from "react-icons/bs";
 import { SlCalender } from "react-icons/sl";
 import { CiMap } from "react-icons/ci";
+import { useDispatch } from "react-redux";
+import { addProperty } from "../../redux/featuers/properties/propertiesSlice";
 
 type SinglePropertyProps = {
   property: [
@@ -40,6 +42,8 @@ type SinglePropertyProps = {
 };
 
 const SingleProperty: React.FC<SinglePropertyProps> = ({ property }) => {
+  const dispatch = useDispatch();
+
   const {
     _id,
     feature,
@@ -65,7 +69,6 @@ const SingleProperty: React.FC<SinglePropertyProps> = ({ property }) => {
     PropertyStatus,
   } = property[0];
 
-  console.log();
   return (
     <section className="py-16">
       <div className="max-w-[1170px] px-4 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
@@ -95,7 +98,6 @@ const SingleProperty: React.FC<SinglePropertyProps> = ({ property }) => {
                 </div>
               </div>
             </div>
-
             {/* overview */}
             <div className="bg-white p-20 mt-20">
               <div className="flex justify-between">
@@ -157,9 +159,6 @@ const SingleProperty: React.FC<SinglePropertyProps> = ({ property }) => {
             <div className="p-10 bg-white mt-10 rounded">
               <div className="flex justify-between items-center mb-8">
                 <p>Address</p>
-                <button className="bg-primary text-white gap-2 flex items-center p-2 rounded-lg">
-                  <CiMap /> Open on Google Maps
-                </button>
               </div>
               <hr className="my-5" />
               <div className="flex justify-between gap-4">
@@ -200,51 +199,61 @@ const SingleProperty: React.FC<SinglePropertyProps> = ({ property }) => {
                 <p>{YearBuilt}</p>
               </div>
               <hr className="my-5" />
-              <div className="flex justify-between gap-4 bg-[#e5f7ff] p-[30px] border-[#00aeff] border-[1px] rounded">
-                <div className="w-2/4">
-                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
-                    <strong> Property ID:</strong>
-                    <p>{_id.slice(0, 10)}</p>
+              <div className=" bg-[#e5f7ff] p-[30px] border-[#00aeff] border-[1px] rounded">
+                <div className="flex justify-between gap-4">
+                  <div className="w-2/4">
+                    <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                      <strong> Property ID:</strong>
+                      <p>{_id.slice(0, 10)}</p>
+                    </div>
+                    <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                      <strong>Price</strong>
+                      <p>$ {price}</p>
+                    </div>
+                    <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                      <strong>Property Size</strong>
+                      <p>{PropertySize}</p>
+                    </div>
+                    <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                      <strong>Bedrooms</strong>
+                      <p>{Bedrooms}</p>
+                    </div>
+                    <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                      <strong>Bathrooms</strong>
+                      <p>{Bathrooms}</p>
+                    </div>
                   </div>
-                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
-                    <strong>Price</strong>
-                    <p>$ {price}</p>
-                  </div>
-                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
-                    <strong>Property Size</strong>
-                    <p>{PropertySize}</p>
-                  </div>
-                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
-                    <strong>Bedrooms</strong>
-                    <p>{Bedrooms}</p>
-                  </div>
-                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
-                    <strong>Bathrooms</strong>
-                    <p>{Bathrooms}</p>
+                  <div className="w-2/4">
+                    <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                      <strong>Garage</strong>
+                      <p>{Garage}</p>
+                    </div>
+                    <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                      <strong>Garage Size</strong>
+                      <p>{GarageSize}</p>
+                    </div>
+                    <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                      <strong>Year Built</strong>
+                      <p>{YearBuilt}</p>
+                    </div>
+                    <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                      <strong>Property Type</strong>
+                      <p>{PropertyType}</p>
+                    </div>
+                    <div className="flex justify-between border-b border-[#dce0e0] p-4">
+                      <strong>Property Status</strong>
+                      <p>{PropertyStatus}</p>
+                    </div>
                   </div>
                 </div>
-                <div className="w-2/4">
-                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
-                    <strong>Garage</strong>
-                    <p>{Garage}</p>
-                  </div>
-                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
-                    <strong>Garage Size</strong>
-                    <p>{GarageSize}</p>
-                  </div>
-                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
-                    <strong>Year Built</strong>
-                    <p>{YearBuilt}</p>
-                  </div>
-                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
-                    <strong>Property Type</strong>
-                    <p>{PropertyType}</p>
-                  </div>
-                  <div className="flex justify-between border-b border-[#dce0e0] p-4">
-                    <strong>Property Status</strong>
-                    <p>{PropertyStatus}</p>
-                  </div>
-                </div>
+                <button
+                  onClick={() => dispatch(addProperty(property[0]))}
+                  className="bg-primary text-white gap-2 flex items-center px-7 py-3  rounded-lg mx-auto mt-4"
+                >
+                  {PropertyStatus === "For Rent"
+                    ? "Book a property"
+                    : "Buy Now"}
+                </button>
               </div>
             </div>
           </div>
