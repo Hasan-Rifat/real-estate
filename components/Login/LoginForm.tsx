@@ -38,7 +38,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
               <div className="w-full">
                 <div className="pb-[20px]">
                   <h2 className="font-normal text-[35px] leading-[42px] text-black z-10 text-center w-full ">
-                    Login
+                    Sign In
                   </h2>
                 </div>
                 <form onSubmit={fromHandler} className="w-full">
