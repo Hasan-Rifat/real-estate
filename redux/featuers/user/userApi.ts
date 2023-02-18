@@ -7,7 +7,13 @@ const userApi = apiSlice.injectEndpoints({
         method: "POST",
         body: { email, password },
       }),
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {},
+      async onQueryStarted(arg, { dispatch, queryFulfilled, getCacheEntry }) {
+        const result = await queryFulfilled;
+        if (result) {
+          localStorage.setItem("token", result.data?.token);
+          console.log(result.data);
+        }
+      },
     }),
     userRegister: builder.mutation({
       query: (data) => ({

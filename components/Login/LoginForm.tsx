@@ -12,7 +12,7 @@ import { useUserLoginMutation } from "../../redux/featuers/user/userApi";
 const LoginForm: React.FC<LoginFormProps> = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [useLogin, { isError, isLoading, data: loginUser, error }] =
+  const [useLogin, { isError, isLoading, data: loginUser, error, isSuccess }] =
     useUserLoginMutation();
 
   const fromHandler = async (e: { preventDefault: () => void }) => {
