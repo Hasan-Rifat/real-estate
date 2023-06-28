@@ -1,4 +1,0 @@
-slider => swiper
-css => tailwindcss
-technology => next js, redux toolkit, typescript
-
