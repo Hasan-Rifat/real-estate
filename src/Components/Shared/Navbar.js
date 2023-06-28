@@ -42,7 +42,8 @@ const Navbar = () => {
         >
           Portfolio
         </NavLink>
-      </li> */}
+      </li>
+       */}
 
       {user && (
         <li>
